@@ -1,0 +1,87 @@
+﻿@using WarehouseResource
+@model Warehouse.Models.WarehouseSocet.WarehouseSocetModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResSocet.Socet</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm("Create", "WarehouseSocet", FormMethod.Post, new { @class = "form-horizontal", id = "MainForm", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="panel panel-default">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@ResSocet.InfoSocet</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.RowBookstand, new { @class = "col-xs-6 col-md-1 control-label" })
+                    <div class="col-xs-6 col-md-3 ">
+                        @Html.TextBoxFor(x => x.RowBookstand, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.RowBookstand)
+                    </div>
+
+                    @Html.LabelFor(x => x.ShelfBookstand, new { @class = "col-xs-6 col-md-1 control-label" })
+                    <div class="col-xs-6 col-md-3">
+                        @Html.TextBoxFor(x => x.ShelfBookstand, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ShelfBookstand)
+                    </div>
+                    
+                    @Html.LabelFor(x => x.SocetNumber, new { @class = "col-xs-6 col-md-1 control-label" })
+                    <div class="col-xs-6 col-md-3">
+                        @Html.TextBoxFor(x => x.SocetNumber, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.SocetNumber)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">@ResSocet.DemensionsSocet</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Width, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4 ">
+                        @Html.TextBoxFor(x => x.Width, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Width)
+                    </div>
+
+                    @Html.LabelFor(x => x.Height, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4">
+                        @Html.TextBoxFor(x => x.Height, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Height)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Length, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4 ">
+                        @Html.TextBoxFor(x => x.Length, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Length)
+                    </div>
+
+                    @Html.LabelFor(x => x.MaxWeight, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4">
+                        @Html.TextBoxFor(x => x.MaxWeight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.MaxWeight)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Zapisz</button>
+                        <a href="@Url.Action("List", "WarehouseSocet")" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Anuluj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

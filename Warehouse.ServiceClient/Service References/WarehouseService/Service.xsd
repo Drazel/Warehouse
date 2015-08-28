@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ean" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q1:ObjectId" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" type="xs:int" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="WarehouseSocet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q2:ObjectId" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxWeight" type="xs:int" />
+      <xs:element minOccurs="0" name="RowBookstand" type="xs:int" />
+      <xs:element minOccurs="0" name="ShelfBookstand" type="xs:int" />
+      <xs:element minOccurs="0" name="SocetNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="UseVolume" type="xs:int" />
+      <xs:element minOccurs="0" name="UseWeight" type="xs:int" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WarehouseSocet" nillable="true" type="tns:WarehouseSocet" />
+  <xs:complexType name="ArrayOfWarehouseSocet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseSocet" nillable="true" type="tns:WarehouseSocet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWarehouseSocet" nillable="true" type="tns:ArrayOfWarehouseSocet" />
+  <xs:complexType name="Package">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q3:ObjectId" />
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Package" nillable="true" type="tns:Package" />
+  <xs:complexType name="ArrayOfPackage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Package" nillable="true" type="tns:Package" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPackage" nillable="true" type="tns:ArrayOfPackage" />
+</xs:schema>

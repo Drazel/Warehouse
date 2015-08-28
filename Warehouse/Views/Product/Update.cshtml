@@ -1,0 +1,85 @@
+﻿@using WarehouseResource
+@model Warehouse.Models.Product.ProductModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResProduct.Product</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post, new { @class = "form-horizontal", id = "MainForm", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.Id)
+    <div class="panel panel-default">
+        <div class="panel panel-primary">
+            <div class="panel-heading">@ResProduct.InfoProduct</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Name, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4 ">
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name)
+                    </div>
+
+                    @Html.LabelFor(x => x.Ean, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4">
+                        @Html.TextBoxFor(x => x.Ean, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Ean)
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">@ResProduct.DemensionsProduct</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Width, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4 ">
+                        @Html.TextBoxFor(x => x.Width, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Width)
+                    </div>
+
+                    @Html.LabelFor(x => x.Height, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4">
+                        @Html.TextBoxFor(x => x.Height, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Height)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Length, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4 ">
+                        @Html.TextBoxFor(x => x.Length, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Length)
+                    </div>
+
+                    @Html.LabelFor(x => x.Weight, new { @class = "col-xs-6 col-md-2 control-label" })
+                    <div class="col-xs-6 col-md-4">
+                        @Html.TextBoxFor(x => x.Weight, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Weight)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Zapisz</button>
+                        <a href="@Url.Action("List", "Product")" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Anuluj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+}

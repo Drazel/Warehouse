@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_GetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_GetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_AddWarehouseSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarehouseSocet" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_AddWarehouseSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarehouseSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_UpdateWarehouseSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWarehouseSocet" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_UpdateWarehouseSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWarehouseSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetWarehouseSocets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSocets" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetWarehouseSocets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSocetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetWarehouseSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSocet" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetWarehouseSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_AddPackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPackage" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_AddPackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_UpdatePackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackage" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_UpdatePackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_GetPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackages" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_GetPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_GetPackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackage" />
+  </wsdl:message>
+  <wsdl:message name="IPackage_GetPackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/Ping" message="tns:IService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/PingResponse" message="tns:IService_Ping_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IProduct">
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/AddProduct" message="tns:IProduct_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/AddProductResponse" message="tns:IProduct_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/UpdateProduct" message="tns:IProduct_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/UpdateProductResponse" message="tns:IProduct_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/GetProducts" message="tns:IProduct_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/GetProductsResponse" message="tns:IProduct_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/GetProduct" message="tns:IProduct_GetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/GetProductResponse" message="tns:IProduct_GetProduct_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IWarehouseSocet">
+    <wsdl:operation name="AddWarehouseSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/AddWarehouseSocet" message="tns:IWarehouseSocet_AddWarehouseSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/AddWarehouseSocetResponse" message="tns:IWarehouseSocet_AddWarehouseSocet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarehouseSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/UpdateWarehouseSocet" message="tns:IWarehouseSocet_UpdateWarehouseSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/UpdateWarehouseSocetResponse" message="tns:IWarehouseSocet_UpdateWarehouseSocet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSocets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocets" message="tns:IWarehouseSocet_GetWarehouseSocets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocetsResponse" message="tns:IWarehouseSocet_GetWarehouseSocets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocet" message="tns:IWarehouseSocet_GetWarehouseSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocetResponse" message="tns:IWarehouseSocet_GetWarehouseSocet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IPackage">
+    <wsdl:operation name="AddPackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackage/AddPackage" message="tns:IPackage_AddPackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackage/AddPackageResponse" message="tns:IPackage_AddPackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackage/UpdatePackage" message="tns:IPackage_UpdatePackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackage/UpdatePackageResponse" message="tns:IPackage_UpdatePackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackage/GetPackages" message="tns:IPackage_GetPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackage/GetPackagesResponse" message="tns:IPackage_GetPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPackage/GetPackage" message="tns:IPackage_GetPackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPackage/GetPackageResponse" message="tns:IPackage_GetPackage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/IService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IProduct" type="tns:IProduct">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IProduct/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IProduct/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/IProduct/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/IProduct/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IWarehouseSocet" type="tns:IWarehouseSocet">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddWarehouseSocet">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/AddWarehouseSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarehouseSocet">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/UpdateWarehouseSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSocets">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/GetWarehouseSocets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseSocet">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/GetWarehouseSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IPackage" type="tns:IPackage">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPackage">
+      <soap:operation soapAction="http://tempuri.org/IPackage/AddPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePackage">
+      <soap:operation soapAction="http://tempuri.org/IPackage/UpdatePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackages">
+      <soap:operation soapAction="http://tempuri.org/IPackage/GetPackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackage">
+      <soap:operation soapAction="http://tempuri.org/IPackage/GetPackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IProduct" binding="tns:BasicHttpBinding_IProduct">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IWarehouseSocet" binding="tns:BasicHttpBinding_IWarehouseSocet">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IPackage" binding="tns:BasicHttpBinding_IPackage">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
