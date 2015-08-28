@@ -1,42 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
+using Warehouse.Data.Attribute;
 
 namespace Warehouse.Data.Dto
 {
+  [BsonCollection("WarehouseSocet")]  
     public class WarehouseSocet
     {
+        #region Properties
+
         public ObjectId Id { get; set; }
 
-        [BsonElement("Row")]
+        [BsonElementAttribute("Row")]
         public int RowBookstand { get; set; }
 
-        [BsonElement("Shelf")]
+        [BsonElementAttribute("Shelf")]
         public int ShelfBookstand { get; set; }
 
-        [BsonElement("SocetNumber")]
+        [BsonElementAttribute("SocetNumber")]
         public int SocetNumber { get; set; }
 
-        [BsonElement("Width")]
+        [BsonElementAttribute("SocetBarcode")]
+        public string SocetBarcode { get { return string.Format("{0}#{1}#{2}", RowBookstand, ShelfBookstand, SocetNumber); } }
+
+        [BsonElementAttribute("Width")]
         public int Width { get; set; }
 
-        [BsonElement("Height")]
+        [BsonElementAttribute("Height")]
         public int Height { get; set; }
 
-        [BsonElement("Length")]
+        [BsonElementAttribute("Length")]
         public int Length { get; set; }
 
-        [BsonElement("MaxWeight")]
-        public int MaxWeight { get; set; }
+        [BsonElementAttribute("MaxWeight")]
+        public double MaxWeight { get; set; }
 
-        [BsonElement("UseWeight")]
-        public int UseWeight { get; set; }
+        [BsonElementAttribute("UseWeight")]
+        public double UseWeight { get; set; }
 
-        [BsonElement("UseVolume")]
+        [BsonElementAttribute("UseVolume")]
         public int UseVolume { get; set; }
+
+        [BsonElementAttribute("Products")]
+        public IList<MongoDBRef> Products { get; private set; }
+
+        #endregion
+
+        #region Constructors
+
+        public WarehouseSocet()
+        {
+            Products = new List<MongoDBRef>();
+        }
+
+        #endregion
+
+        #region Methods
+
+        public void AddProductToSocet(Product product)
+        {
+            var refDb = new MongoDBRef("Product", product.Id);
+            UseVolume += product.Volume;
+            UseWeight += product.Weight;
+            Products.Add(refDb);
+        }
+
+        #endregion
     }
 }

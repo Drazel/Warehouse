@@ -1,31 +1,33 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Warehouse.Data.Attribute;
 
 namespace Warehouse.Data.Dto
 {
+    [BsonCollection("Product")]
     public class Product
     {
         #region Properties
 
         public ObjectId Id { get; set; }
 
-        [BsonElement("Name")]
+        [BsonElementAttribute("Name")]
         public string Name { get; set; }
 
-        [BsonElement("Ean")]
+        [BsonElementAttribute("Ean")]
         public string Ean { get; set; }
 
-        [BsonElement("Width")]
+        [BsonElementAttribute("Width")]
         public int Width { get; set; }
 
-        [BsonElement("Height")]
+        [BsonElementAttribute("Height")]
         public int Height { get; set; }
 
-        [BsonElement("Length")]
+        [BsonElementAttribute("Length")]
         public int Length { get; set; }
 
-        [BsonElement("Weight")]
-        public int Weight { get; set; }
+        [BsonElementAttribute("Weight")]
+        public double Weight { get; set; }
 
         public int Volume
         {

@@ -31,7 +31,7 @@ namespace Warehouse.Models.Product
 
         [Required]
         [Display(Name = "Weight", ResourceType = typeof (ResGlobal))]
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
         #endregion
     }

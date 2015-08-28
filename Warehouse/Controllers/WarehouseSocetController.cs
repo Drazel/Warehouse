@@ -51,7 +51,8 @@ namespace Warehouse.Controllers
         // GET: WarehouseSocet/Edit/5
         public ActionResult Edit(string socetId)
         {
-            var model = new WarehouseSocetModel();
+            var socet = WarehouseSocetService.GetWarehouseSocet(socetId);
+            var model = Mapper.Map<WarehouseSocetModel>(socet);
             return View(model);
         }
 
@@ -59,16 +60,22 @@ namespace Warehouse.Controllers
         [HttpPost]
         public ActionResult Edit(WarehouseSocetModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                try
+                {
+                    var socet = Mapper.Map<WarehouseSocet>(model);
+                    var result = WarehouseSocetService.UpdateWarehouseSocet(socet);
 
-                return RedirectToAction("list");
+                    if (result)
+                        return RedirectToAction("list");
+                }
+                catch
+                {
+                    return View(model);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
     }
 }

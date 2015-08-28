@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Warehouse.Data.Helper;
 
 namespace Warehouse.Data.Repository
 {
@@ -23,7 +25,7 @@ namespace Warehouse.Data.Repository
 
         #region Constructors
 
-        public ARespository()
+        protected ARespository()
         {
             var client = new MongoClient(connectionString);
             _database = client.GetDatabase(DatabaseName);
@@ -34,9 +36,10 @@ namespace Warehouse.Data.Repository
 
         #region Methods
 
-        protected abstract string GetCollectionName();
-        public abstract bool Update(T item);
-        public abstract bool Update(List<T> item);
+        protected string GetCollectionName()
+        {
+            return AttributeHelper.GetBsonCollectionAttributeName(typeof (T));
+        }
 
         protected IMongoCollection<T> GetCollection()
         {
@@ -60,6 +63,30 @@ namespace Warehouse.Data.Repository
             var collection = GetCollection();
             var list = collection.Find(GetFilterById(id));
             return await list.FirstOrDefaultAsync();
+        }
+
+        private async Task<T> GetByFiltrFirstAsync(FilterDefinition<T> filter)
+        {
+            var collection = GetCollection();
+            var list = collection.Find(filter);
+            return await list.FirstOrDefaultAsync();
+        }
+
+        public T GetByFiltrFirst(FilterDefinition<T> filter)
+        {
+            return GetByFiltrFirstAsync(filter).Result;
+        }
+
+        private async Task<List<T>> GetByFiltrAsync(FilterDefinition<T> filter)
+        {
+            var collection = GetCollection();
+            var list = collection.Find(filter);
+            return await list.ToListAsync();
+        }
+
+        public List<T> GetByFiltr(FilterDefinition<T> filter)
+        {
+            return GetByFiltrAsync(filter).Result;
         }
 
         public T GetById(string id)
@@ -123,10 +150,66 @@ namespace Warehouse.Data.Repository
             return RemoveAsync(ObjectId.Parse(id)).Result;
         }
 
-        public FilterDefinition<T> GetFilterById(ObjectId id)
+        protected FilterDefinition<T> GetFilterById(ObjectId id)
         {
             return Builders<T>.Filter.Eq("_id", id);
         }
+
+        protected FilterDefinition<T> GetFilterById(T item)
+        {
+            var type = typeof (T);
+            var propertis = type.GetProperties();
+            var properti = type.GetProperties().FirstOrDefault(x => x.PropertyType == typeof (ObjectId));
+            var id = type.GetProperty(properti.Name).GetValue(item, null);
+            return Builders<T>.Filter.Eq("_id", id);
+        }
+
+        protected UpdateDefinition<T> GetUpdateDefinition(T item)
+        {
+            UpdateDefinition<T> result = null;
+            var elemnts = AttributeHelper.GetBsonElementAttributeList(item);
+
+            var update = Builders<T>.Update;
+            //return update.Set("Width", 1);
+            foreach (var elemnt in elemnts)
+            {
+                if(result == null)
+                    result = update.Set(elemnt.Key, elemnt.Value);
+                else
+                    result = result.Set(elemnt.Key, elemnt.Value);
+
+            }
+            return result;
+        } 
+
+        protected async Task<bool> UpdateAsync(T item)
+        {
+            var collection = GetCollection();
+            var filter = GetFilterById(item);
+            var update = GetUpdateDefinition(item);
+
+            var result = await collection.UpdateOneAsync(filter, update);
+            return result.IsModifiedCountAvailable;
+        }
+
+        public bool Update(T item)
+        {
+            return UpdateAsync(item).Result;
+        }
+
+        public bool Update(List<T> items)
+        {
+            var result = false;
+            foreach (var item in items)
+            {
+                result = Update(item);
+                if (!result)
+                    break;
+            }
+            return result;
+        }
+
+     
         #endregion
     }
 }

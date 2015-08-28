@@ -12,7 +12,7 @@
     </div>
 </div>
 
-@using (Html.BeginForm("Create", "WarehouseSocet", FormMethod.Post, new {@class = "form-horizontal", id = "MainForm", role = "form"}))
+@using (Html.BeginForm("Edit", "WarehouseSocet", FormMethod.Post, new { @class = "form-horizontal", id = "MainForm", role = "form" }))
 {
     @Html.ValidationSummary(true)
     @Html.HiddenFor(x => x.Id)

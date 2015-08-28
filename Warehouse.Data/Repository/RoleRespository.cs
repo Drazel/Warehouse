@@ -1,6 +1,8 @@
-﻿namespace Warehouse.Data.Repository
+﻿using Warehouse.Data.Dto;
+
+namespace Warehouse.Data.Repository
 {
-    internal class RoleRespository
+    public class RoleRespository : ARespository<Role>
     {
     }
 }

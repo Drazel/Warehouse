@@ -34,9 +34,9 @@ namespace Warehouse.Models.WarehouseSocet
 
         [Required]
         [Display(Name = "MaxWeight", ResourceType = typeof(ResSocet))]
-        public int MaxWeight { get; set; }
+        public double MaxWeight { get; set; }
 
-        public int UseWeight { get; set; }
+        public double UseWeight { get; set; }
 
         public int MaxVolume { get { return Width * Height * Length; } }
 

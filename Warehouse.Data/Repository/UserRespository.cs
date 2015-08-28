@@ -1,6 +1,8 @@
-﻿namespace Warehouse.Data.Repository
+﻿using Warehouse.Data.Dto;
+
+namespace Warehouse.Data.Repository
 {
-    internal class UserRespository
+    public class UserRespository : ARespository<User>
     {
     }
 }
