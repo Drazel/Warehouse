@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Warehouse.Data.Helper;
+using Warehouse.Data.Result;
 
 namespace Warehouse.Data.Repository
 {
@@ -29,7 +30,6 @@ namespace Warehouse.Data.Repository
         {
             var client = new MongoClient(connectionString);
             _database = client.GetDatabase(DatabaseName);
-            
         }
 
         #endregion
@@ -99,53 +99,65 @@ namespace Warehouse.Data.Repository
             return GetByIdAsync(id).Result;
         }
 
-        private async Task<bool> AddAsync(T item)
+        private async Task<BoolResult> AddAsync(T item)
         {
-            var result = false;
+            var result = new BoolResult();
             try
             {
                 var collection = GetCollection();
                 await collection.InsertOneAsync(item);
-                result = true;
+                result.SetSucces();
             }
             catch (Exception ex)
             {
-                result = false;
+                result.SetError(ex);
             }
 
             return result;
         }
 
-        public bool Add(T item)
+        public BoolResult Add(T item)
         {
             return AddAsync(item).Result;
         }
 
-        public async Task<bool> RemoveAsync(ObjectId id)
+        public BoolResult Add(List<T> items)
         {
+            var result = new BoolResult();
+            foreach (var item in items)
+            {
+                result = Add(item);
+                if (!result.Succes)
+                    break;
+            }
 
-            var result = false;
+            return result;
+        }
+
+        public async Task<BoolResult> RemoveAsync(ObjectId id)
+        {
+            var result = new BoolResult();
             try
             {
                 var collection = GetCollection();
                 var filter = GetFilterById(id);
                 await collection.DeleteOneAsync(filter);
-                result = true;
+                result.SetSucces();
             }
             catch (Exception ex)
             {
-                result = false;
+                result.SetError(ex);
             }
 
             return result;
         }
 
-        public bool Remove(ObjectId id)
+        public BoolResult Remove(ObjectId id)
         {
             return RemoveAsync(id).Result;
         }
 
-        public bool Remove(string id)
+        public BoolResult Remove(string id)
         {
             return RemoveAsync(ObjectId.Parse(id)).Result;
         }
@@ -173,43 +185,49 @@ namespace Warehouse.Data.Repository
             //return update.Set("Width", 1);
             foreach (var elemnt in elemnts)
             {
-                if(result == null)
+                if (result == null)
                     result = update.Set(elemnt.Key, elemnt.Value);
                 else
                     result = result.Set(elemnt.Key, elemnt.Value);
-
             }
             return result;
-        } 
-
-        protected async Task<bool> UpdateAsync(T item)
-        {
-            var collection = GetCollection();
-            var filter = GetFilterById(item);
-            var update = GetUpdateDefinition(item);
-
-            var result = await collection.UpdateOneAsync(filter, update);
-            return result.IsModifiedCountAvailable;
         }
 
-        public bool Update(T item)
+        protected async Task<BoolResult> UpdateAsync(T item)
+        {
+            var result = new BoolResult();
+            try
+            {
+                var collection = GetCollection();
+                var filter = GetFilterById(item);
+                var update = GetUpdateDefinition(item);
+                await collection.UpdateOneAsync(filter, update);
+                result.SetSucces();
+            }
+            catch (Exception ex)
+            {
+                result.SetError(ex);
+            }
+            return result;
+        }
+
+        public BoolResult Update(T item)
         {
             return UpdateAsync(item).Result;
         }
 
-        public bool Update(List<T> items)
+        public BoolResult Update(List<T> items)
         {
-            var result = false;
+            var result = new BoolResult();
             foreach (var item in items)
             {
                 result = Update(item);
-                if (!result)
+                if (!result.Succes)
                     break;
             }
             return result;
         }
 
-     
         #endregion
     }
 }

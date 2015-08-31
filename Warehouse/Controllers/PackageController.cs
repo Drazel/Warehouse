@@ -31,7 +31,7 @@ namespace Warehouse.Controllers
                     var package = Mapper.Map<Package>(model);
                     var result = PackageService.AddPackage(package);
 
-                    if(result)
+                    if (result.Succes)
                         return RedirectToAction("List");
                 }
             }

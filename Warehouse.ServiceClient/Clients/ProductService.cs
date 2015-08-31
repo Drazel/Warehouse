@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Warehouse.Data.Result;
 using Warehouse.ServiceClient.WarehouseService;
 using Product = Warehouse.Data.Dto.Product;
 
@@ -10,14 +11,14 @@ namespace Warehouse.ServiceClient.Clients
 {
     public static class ProductService
     {
-        public static bool AddProduct(Product product)
+        public static BoolResult AddProduct(Product product)
         {
-            return ServiceManager.Call<ProductClient, bool>(c => c.AddProduct(product));
+            return ServiceManager.Call<ProductClient, BoolResult>(c => c.AddProduct(product));
         }
 
-        public static bool UpdateProduct(Product product)
+        public static BoolResult UpdateProduct(Product product)
         {
-            return ServiceManager.Call<ProductClient, bool>(c => c.UpdateProduct(product));
+            return ServiceManager.Call<ProductClient, BoolResult>(c => c.UpdateProduct(product));
         }
 
         public static IEnumerable<Product> GetProducts()
@@ -28,6 +29,11 @@ namespace Warehouse.ServiceClient.Clients
         public static Product GetProduct(string productId)
         {
             return ServiceManager.Call<ProductClient, Product>(c => c.GetProduct(productId));
+        }
+
+        public static string GetProductByEan(string ean)
+        {
+            return ServiceManager.Call<ProductClient, string>(c => c.GetProductByEan(ean));
         }
     }
 }

@@ -29,17 +29,6 @@ namespace TestConsole
             var rep = new WarehouseSocetRepository();
             socect = rep.GetById("55e0816e546c551fb48775ff");
 
-            var repProd = new ProductRepository();
-            var list = repProd.GetItemsList();
-
-            socect.Products.Clear();
-
-            foreach (var item in list)
-            {
-               socect.AddProductToSocet(item);
-                break;
-            }
-
             rep.Update(socect);
 
         }

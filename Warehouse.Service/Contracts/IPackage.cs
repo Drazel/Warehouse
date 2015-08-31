@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using Warehouse.Data.Dto;
+using Warehouse.Data.Result;
 
 namespace Warehouse.Service.Contracts
 {
@@ -10,10 +11,10 @@ namespace Warehouse.Service.Contracts
         #region Methods
 
         [OperationContract]
-        bool AddPackage(Package product);
+        BoolResult AddPackage(Package product);
 
         [OperationContract]
-        bool UpdatePackage(Package product);
+        BoolResult UpdatePackage(Package product);
 
         [OperationContract]
         IEnumerable<Package> GetPackages();

@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Warehouse.Data.Dto;
+using Warehouse.Data.Result;
 using Warehouse.ServiceClient.WarehouseService;
 
 namespace Warehouse.ServiceClient.Clients
 {
     public static class PackageService
     {
-        public static bool AddPackage(Package package)
+        public static BoolResult AddPackage(Package package)
         {
-            return ServiceManager.Call<PackageClient, bool>(c => c.AddPackage(package));
+            return ServiceManager.Call<PackageClient, BoolResult>(c => c.AddPackage(package));
         }
 
-        public static bool UpdateProduct(Package package)
+        public static BoolResult UpdateProduct(Package package)
         {
-            return ServiceManager.Call<PackageClient, bool>(c => c.UpdatePackage(package));
+            return ServiceManager.Call<PackageClient, BoolResult>(c => c.UpdatePackage(package));
         }
 
         public static IEnumerable<Package> GetPackages()

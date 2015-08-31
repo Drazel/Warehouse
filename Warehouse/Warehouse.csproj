@@ -193,6 +193,7 @@
     <Compile Include="Models\Package\PackageModel.cs" />
     <Compile Include="Models\Product\ProductModel.cs" />
     <Compile Include="Models\Product\ProductsListModel.cs" />
+    <Compile Include="Models\WarehouseSocet\SocetProductsModel.cs" />
     <Compile Include="Models\WarehouseSocet\WarehouseSocetModel.cs" />
     <Compile Include="Models\WarehouseSocet\WarehouseSocetsListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

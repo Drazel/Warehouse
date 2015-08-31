@@ -26,7 +26,7 @@ namespace Warehouse.Controllers
             {
                 var product = Mapper.Map<Product>(model);
                 var result = ProductService.AddProduct(product);
-                if (result)
+                if (result.Succes)
                 {
                     return RedirectToAction("List");
                 }

@@ -36,8 +36,8 @@ namespace Warehouse.Controllers
                 {
                     var socet = Mapper.Map<WarehouseSocet>(model);
                     var result = WarehouseSocetService.AddWarehouseSocet(socet);
-                    
-                    if (result)
+
+                    if (result.Succes)
                         return RedirectToAction("list");
                 }
                 catch
@@ -67,7 +67,7 @@ namespace Warehouse.Controllers
                     var socet = Mapper.Map<WarehouseSocet>(model);
                     var result = WarehouseSocetService.UpdateWarehouseSocet(socet);
 
-                    if (result)
+                    if (result.Succes)
                         return RedirectToAction("list");
                 }
                 catch

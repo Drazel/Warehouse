@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Warehouse.Data.Dto;
+using Warehouse.Data.Result;
 using Warehouse.ServiceClient.WarehouseService;
 
 namespace Warehouse.ServiceClient.Clients
 {
     public static class WarehouseSocetService
     {
-        public static bool AddWarehouseSocet(WarehouseSocet warehouseSocet)
+        public static BoolResult AddWarehouseSocet(WarehouseSocet warehouseSocet)
         {
-            return ServiceManager.Call<WarehouseSocetClient, bool>(c => c.AddWarehouseSocet(warehouseSocet));
+            return ServiceManager.Call<WarehouseSocetClient, BoolResult>(c => c.AddWarehouseSocet(warehouseSocet));
         }
 
-        public static bool UpdateWarehouseSocet(WarehouseSocet warehouseSocet)
+        public static BoolResult UpdateWarehouseSocet(WarehouseSocet warehouseSocet)
         {
-            return ServiceManager.Call<WarehouseSocetClient, bool>(c => c.UpdateWarehouseSocet(warehouseSocet));
+            return ServiceManager.Call<WarehouseSocetClient, BoolResult>(c => c.UpdateWarehouseSocet(warehouseSocet));
         }
 
         public static IEnumerable<WarehouseSocet> GetWarehouseSocets()
@@ -28,6 +29,11 @@ namespace Warehouse.ServiceClient.Clients
         public static WarehouseSocet GetWarehouseSocet(string warehouseSocetId)
         {
             return ServiceManager.Call<WarehouseSocetClient, WarehouseSocet>(c => c.GetWarehouseSocet(warehouseSocetId));
+        }
+
+        public static string GetSocetByBarcode(string barcode)
+        {
+            return ServiceManager.Call<WarehouseSocetClient, string>(c => c.GetSocetByBarcode(barcode));
         }
     }
 }

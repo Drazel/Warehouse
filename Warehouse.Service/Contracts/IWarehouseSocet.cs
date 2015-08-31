@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using Warehouse.Data.Dto;
+using Warehouse.Data.Result;
 
 namespace Warehouse.Service.Contracts
 {
@@ -10,16 +11,19 @@ namespace Warehouse.Service.Contracts
         #region Methods
 
         [OperationContract]
-        bool AddWarehouseSocet(WarehouseSocet socet);
+        BoolResult AddWarehouseSocet(WarehouseSocet socet);
 
         [OperationContract]
-        bool UpdateWarehouseSocet(WarehouseSocet socet);
+        BoolResult UpdateWarehouseSocet(WarehouseSocet socet);
 
         [OperationContract]
         IEnumerable<WarehouseSocet> GetWarehouseSocets();
 
         [OperationContract]
         WarehouseSocet GetWarehouseSocet(string socetId);
+
+        [OperationContract]
+        string GetSocetByBarcode(string barcode);
 
         #endregion
     }

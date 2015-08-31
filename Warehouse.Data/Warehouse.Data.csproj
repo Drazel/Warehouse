@@ -60,6 +60,8 @@
     <Compile Include="Dto\Package.cs" />
     <Compile Include="Dto\Product.cs" />
     <Compile Include="Dto\Role.cs" />
+    <Compile Include="Dto\SocetProducts.cs" />
+    <Compile Include="Dto\Supply.cs" />
     <Compile Include="Dto\User.cs" />
     <Compile Include="Dto\WarehouseSocet.cs" />
     <Compile Include="Helper\AttributeHelper.cs" />
@@ -68,8 +70,10 @@
     <Compile Include="Repository\PackageRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\RoleRespository.cs" />
+    <Compile Include="Repository\SocetProductsRepository.cs" />
     <Compile Include="Repository\UserRespository.cs" />
     <Compile Include="Repository\WarehouseSocetRepository.cs" />
+    <Compile Include="Result\BoolResult.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

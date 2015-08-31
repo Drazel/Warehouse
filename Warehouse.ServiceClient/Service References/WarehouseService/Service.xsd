@@ -8,7 +8,7 @@
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q1:ObjectId" />
       <xs:element minOccurs="0" name="Length" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Weight" type="xs:int" />
+      <xs:element minOccurs="0" name="Weight" type="xs:double" />
       <xs:element minOccurs="0" name="Width" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -24,12 +24,12 @@
       <xs:element minOccurs="0" name="Height" type="xs:int" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q2:ObjectId" />
       <xs:element minOccurs="0" name="Length" type="xs:int" />
-      <xs:element minOccurs="0" name="MaxWeight" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxWeight" type="xs:double" />
       <xs:element minOccurs="0" name="RowBookstand" type="xs:int" />
       <xs:element minOccurs="0" name="ShelfBookstand" type="xs:int" />
       <xs:element minOccurs="0" name="SocetNumber" type="xs:int" />
       <xs:element minOccurs="0" name="UseVolume" type="xs:int" />
-      <xs:element minOccurs="0" name="UseWeight" type="xs:int" />
+      <xs:element minOccurs="0" name="UseWeight" type="xs:double" />
       <xs:element minOccurs="0" name="Width" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

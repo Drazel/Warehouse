@@ -6,7 +6,7 @@ using Warehouse.Data.Attribute;
 
 namespace Warehouse.Data.Dto
 {
-  [BsonCollection("WarehouseSocet")]  
+    [BsonCollection("WarehouseSocet")]  
     public class WarehouseSocet
     {
         #region Properties
@@ -43,30 +43,7 @@ namespace Warehouse.Data.Dto
         [BsonElementAttribute("UseVolume")]
         public int UseVolume { get; set; }
 
-        [BsonElementAttribute("Products")]
-        public IList<MongoDBRef> Products { get; private set; }
-
         #endregion
 
-        #region Constructors
-
-        public WarehouseSocet()
-        {
-            Products = new List<MongoDBRef>();
-        }
-
-        #endregion
-
-        #region Methods
-
-        public void AddProductToSocet(Product product)
-        {
-            var refDb = new MongoDBRef("Product", product.Id);
-            UseVolume += product.Volume;
-            UseWeight += product.Weight;
-            Products.Add(refDb);
-        }
-
-        #endregion
     }
 }

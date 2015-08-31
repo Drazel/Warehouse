@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Warehouse.Data.Repository;
+using Warehouse.Data.Result;
 using Warehouse.Service.Contracts;
 
 namespace Warehouse.Service
@@ -11,13 +12,12 @@ namespace Warehouse.Service
     {
         private static WarehouseSocetRepository warehouseSocetRepository = new WarehouseSocetRepository();
 
-
-        public bool AddWarehouseSocet(Data.Dto.WarehouseSocet socet)
+        public BoolResult AddWarehouseSocet(Data.Dto.WarehouseSocet socet)
         {
             return warehouseSocetRepository.Add(socet);
         }
 
-        public bool UpdateWarehouseSocet(Data.Dto.WarehouseSocet socet)
+        public BoolResult UpdateWarehouseSocet(Data.Dto.WarehouseSocet socet)
         {
             return warehouseSocetRepository.Update(socet);
         }
@@ -31,5 +31,11 @@ namespace Warehouse.Service
         {
             return warehouseSocetRepository.GetById(socetId);
         }
+
+        public string GetSocetByBarcode(string barcode)
+        {
+            return warehouseSocetRepository.GetSocetByBarcode(barcode);
+        }
+    
     }
 }

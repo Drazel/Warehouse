@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_Ping_InputMessage">
@@ -38,6 +39,12 @@
   <wsdl:message name="IProduct_GetProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IProduct_GetProductByEan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByEan" />
+  </wsdl:message>
+  <wsdl:message name="IProduct_GetProductByEan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByEanResponse" />
+  </wsdl:message>
   <wsdl:message name="IWarehouseSocet_AddWarehouseSocet_InputMessage">
     <wsdl:part name="parameters" element="tns:AddWarehouseSocet" />
   </wsdl:message>
@@ -61,6 +68,12 @@
   </wsdl:message>
   <wsdl:message name="IWarehouseSocet_GetWarehouseSocet_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetWarehouseSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetSocetByBarcode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSocetByBarcode" />
+  </wsdl:message>
+  <wsdl:message name="IWarehouseSocet_GetSocetByBarcode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSocetByBarcodeResponse" />
   </wsdl:message>
   <wsdl:message name="IPackage_AddPackage_InputMessage">
     <wsdl:part name="parameters" element="tns:AddPackage" />
@@ -86,6 +99,30 @@
   <wsdl:message name="IPackage_GetPackage_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPackageResponse" />
   </wsdl:message>
+  <wsdl:message name="ISocetProducts_AddProductToSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToSocet" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_AddProductToSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductToSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_AddManyProductToSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddManyProductToSocet" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_AddManyProductToSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddManyProductToSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_GetProductFromSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductFromSocet" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_GetProductFromSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductFromSocetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_GetManyProductFromSocet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManyProductFromSocet" />
+  </wsdl:message>
+  <wsdl:message name="ISocetProducts_GetManyProductFromSocet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManyProductFromSocetResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Ping">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Ping" message="tns:IService_Ping_InputMessage" />
@@ -109,6 +146,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProduct/GetProduct" message="tns:IProduct_GetProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProduct/GetProductResponse" message="tns:IProduct_GetProduct_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProductByEan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProduct/GetProductByEan" message="tns:IProduct_GetProductByEan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProduct/GetProductByEanResponse" message="tns:IProduct_GetProductByEan_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWarehouseSocet">
     <wsdl:operation name="AddWarehouseSocet">
@@ -127,6 +168,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocet" message="tns:IWarehouseSocet_GetWarehouseSocet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/GetWarehouseSocetResponse" message="tns:IWarehouseSocet_GetWarehouseSocet_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetSocetByBarcode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWarehouseSocet/GetSocetByBarcode" message="tns:IWarehouseSocet_GetSocetByBarcode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWarehouseSocet/GetSocetByBarcodeResponse" message="tns:IWarehouseSocet_GetSocetByBarcode_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IPackage">
     <wsdl:operation name="AddPackage">
@@ -144,6 +189,24 @@
     <wsdl:operation name="GetPackage">
       <wsdl:input wsaw:Action="http://tempuri.org/IPackage/GetPackage" message="tns:IPackage_GetPackage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPackage/GetPackageResponse" message="tns:IPackage_GetPackage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISocetProducts">
+    <wsdl:operation name="AddProductToSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocetProducts/AddProductToSocet" message="tns:ISocetProducts_AddProductToSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocetProducts/AddProductToSocetResponse" message="tns:ISocetProducts_AddProductToSocet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManyProductToSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocetProducts/AddManyProductToSocet" message="tns:ISocetProducts_AddManyProductToSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocetProducts/AddManyProductToSocetResponse" message="tns:ISocetProducts_AddManyProductToSocet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductFromSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocetProducts/GetProductFromSocet" message="tns:ISocetProducts_GetProductFromSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocetProducts/GetProductFromSocetResponse" message="tns:ISocetProducts_GetProductFromSocet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManyProductFromSocet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISocetProducts/GetManyProductFromSocet" message="tns:ISocetProducts_GetManyProductFromSocet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISocetProducts/GetManyProductFromSocetResponse" message="tns:ISocetProducts_GetManyProductFromSocet_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -196,6 +259,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProductByEan">
+      <soap:operation soapAction="http://tempuri.org/IProduct/GetProductByEan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IWarehouseSocet" type="tns:IWarehouseSocet">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -228,6 +300,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetWarehouseSocet">
       <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/GetWarehouseSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocetByBarcode">
+      <soap:operation soapAction="http://tempuri.org/IWarehouseSocet/GetSocetByBarcode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -275,6 +356,45 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISocetProducts" type="tns:ISocetProducts">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddProductToSocet">
+      <soap:operation soapAction="http://tempuri.org/ISocetProducts/AddProductToSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManyProductToSocet">
+      <soap:operation soapAction="http://tempuri.org/ISocetProducts/AddManyProductToSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductFromSocet">
+      <soap:operation soapAction="http://tempuri.org/ISocetProducts/GetProductFromSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManyProductFromSocet">
+      <soap:operation soapAction="http://tempuri.org/ISocetProducts/GetManyProductFromSocet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
       <soap:address location="http://localhost:57498/Service.svc" />
@@ -286,6 +406,9 @@
       <soap:address location="http://localhost:57498/Service.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IPackage" binding="tns:BasicHttpBinding_IPackage">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISocetProducts" binding="tns:BasicHttpBinding_ISocetProducts">
       <soap:address location="http://localhost:57498/Service.svc" />
     </wsdl:port>
   </wsdl:service>

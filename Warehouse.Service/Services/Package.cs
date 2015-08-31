@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Warehouse.Data.Repository;
+using Warehouse.Data.Result;
 using Warehouse.Service.Contracts;
 
 namespace Warehouse.Service
@@ -11,12 +12,12 @@ namespace Warehouse.Service
     {
         private static PackageRepository packageRepository = new PackageRepository();
 
-        public bool AddPackage(Data.Dto.Package package)
+        public BoolResult AddPackage(Data.Dto.Package package)
         {
             return packageRepository.Add(package);
         }
 
-        public bool UpdatePackage(Data.Dto.Package package)
+        public BoolResult UpdatePackage(Data.Dto.Package package)
         {
             return packageRepository.Update(package);
         }

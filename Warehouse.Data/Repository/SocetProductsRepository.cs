@@ -2,7 +2,7 @@
 
 namespace Warehouse.Data.Repository
 {
-    public class PackageRepository : ARespository<Package>
+    public class SocetProductsRepository : ARespository<SocetProducts>
     {
     }
 }
