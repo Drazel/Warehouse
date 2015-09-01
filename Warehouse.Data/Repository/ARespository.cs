@@ -182,7 +182,6 @@ namespace Warehouse.Data.Repository
             var elemnts = AttributeHelper.GetBsonElementAttributeList(item);
 
             var update = Builders<T>.Update;
-            //return update.Set("Width", 1);
             foreach (var elemnt in elemnts)
             {
                 if (result == null)

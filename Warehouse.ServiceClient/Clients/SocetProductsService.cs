@@ -9,24 +9,34 @@ using Warehouse.ServiceClient.WarehouseService;
 
 namespace Warehouse.ServiceClient.Clients
 {
-    public class SocetProductsService
+    public static class SocetProductsService
     {
-        public BoolResult AddProductToSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet)
+        public static BoolResult AddProductToSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet)
         {
             return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.AddProductToSocet(product, socet));
         }
 
-        public BoolResult AddProductToSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet, int count)
+        public static BoolResult AddProductIdToSocetId(string productId, string socetId)
+        {
+            return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.AddProductIdToSocetId(productId, socetId));
+        }
+
+        public static BoolResult AddProductToSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet, int count)
         {
             return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.AddManyProductToSocet(product, socet, count));
         }
 
-        public BoolResult GetProductFromSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet)
+        public static BoolResult AddProductIdToSocetId(string productId, string socetId, int count)
+        {
+            return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.AddManyProductIdToSocetId(productId, socetId, count));
+        }
+
+        public static BoolResult GetProductFromSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet)
         {
             return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.GetProductFromSocet(product, socet));
         }
 
-        public BoolResult GetManyProductTFromSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet, int count)
+        public static BoolResult GetManyProductTFromSocet(Data.Dto.Product product, Data.Dto.WarehouseSocet socet, int count)
         {
             return ServiceManager.Call<SocetProductsClient, BoolResult>(c => c.GetManyProductFromSocet(product, socet, count));
         }

@@ -79,6 +79,15 @@ namespace WarehouseResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ilość.
+        /// </summary>
+        public static string Count {
+            get {
+                return ResourceManager.GetString("Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wysokość.
         /// </summary>
         public static string Height {
@@ -102,6 +111,33 @@ namespace WarehouseResource {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produkty do gniazda.
+        /// </summary>
+        public static string SocetProdukt {
+            get {
+                return ResourceManager.GetString("SocetProdukt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objętość.
+        /// </summary>
+        public static string Volume {
+            get {
+                return ResourceManager.GetString("Volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Magazyn.
+        /// </summary>
+        public static string Warehouse {
+            get {
+                return ResourceManager.GetString("Warehouse", resourceCulture);
             }
         }
         

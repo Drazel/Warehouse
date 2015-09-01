@@ -80,35 +80,35 @@
   <xs:element name="GetProductByEanResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetProductByEanResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetProductByEanResult" nillable="true" type="q7:Product" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddWarehouseSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q7:WarehouseSocet" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q8:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddWarehouseSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddWarehouseSocetResult" nillable="true" type="q8:BoolResult" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddWarehouseSocetResult" nillable="true" type="q9:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateWarehouseSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q9:WarehouseSocet" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q10:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateWarehouseSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="UpdateWarehouseSocetResult" nillable="true" type="q10:BoolResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="UpdateWarehouseSocetResult" nillable="true" type="q11:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +120,7 @@
   <xs:element name="GetWarehouseSocetsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetWarehouseSocetsResult" nillable="true" type="q11:ArrayOfWarehouseSocet" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetWarehouseSocetsResult" nillable="true" type="q12:ArrayOfWarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +134,7 @@
   <xs:element name="GetWarehouseSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetWarehouseSocetResult" nillable="true" type="q12:WarehouseSocet" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetWarehouseSocetResult" nillable="true" type="q13:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -148,35 +148,35 @@
   <xs:element name="GetSocetByBarcodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetSocetByBarcodeResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetSocetByBarcodeResult" nillable="true" type="q14:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddPackage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q13:Package" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q15:Package" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddPackageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddPackageResult" nillable="true" type="q14:BoolResult" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddPackageResult" nillable="true" type="q16:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdatePackage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q15:Package" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q17:Package" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdatePackageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="UpdatePackageResult" nillable="true" type="q16:BoolResult" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="UpdatePackageResult" nillable="true" type="q18:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -188,7 +188,7 @@
   <xs:element name="GetPackagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetPackagesResult" nillable="true" type="q17:ArrayOfPackage" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetPackagesResult" nillable="true" type="q19:ArrayOfPackage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -202,30 +202,45 @@
   <xs:element name="GetPackageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetPackageResult" nillable="true" type="q18:Package" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="GetPackageResult" nillable="true" type="q20:Package" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddProductToSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q19:Product" />
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q20:WarehouseSocet" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q21:Product" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q22:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddProductToSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddProductToSocetResult" nillable="true" type="q21:BoolResult" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddProductToSocetResult" nillable="true" type="q23:BoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProductIdToSocetId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="socetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProductIdToSocetIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddProductIdToSocetIdResult" nillable="true" type="q24:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddManyProductToSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q22:Product" />
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q23:WarehouseSocet" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q25:Product" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q26:WarehouseSocet" />
         <xs:element minOccurs="0" name="count" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -233,30 +248,46 @@
   <xs:element name="AddManyProductToSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddManyProductToSocetResult" nillable="true" type="q24:BoolResult" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddManyProductToSocetResult" nillable="true" type="q27:BoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManyProductIdToSocetId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="socetId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddManyProductIdToSocetIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddManyProductIdToSocetIdResult" nillable="true" type="q28:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetProductFromSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q25:Product" />
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q26:WarehouseSocet" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q29:Product" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q30:WarehouseSocet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetProductFromSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetProductFromSocetResult" nillable="true" type="q27:BoolResult" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetProductFromSocetResult" nillable="true" type="q31:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetManyProductFromSocet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q28:Product" />
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q29:WarehouseSocet" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="product" nillable="true" type="q32:Product" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="socet" nillable="true" type="q33:WarehouseSocet" />
         <xs:element minOccurs="0" name="count" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -264,7 +295,7 @@
   <xs:element name="GetManyProductFromSocetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetManyProductFromSocetResult" nillable="true" type="q30:BoolResult" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetManyProductFromSocetResult" nillable="true" type="q34:BoolResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

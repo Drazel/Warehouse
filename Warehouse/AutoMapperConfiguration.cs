@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
 using Warehouse.Data.Dto;
+using Warehouse.Data.Result;
+using Warehouse.Models.Base;
 using Warehouse.Models.Package;
 using Warehouse.Models.Product;
 using Warehouse.Models.WarehouseSocet;
@@ -25,6 +27,9 @@ namespace Warehouse
                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.ToString()));
             Mapper.CreateMap<PackageModel, Package>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id != null ? ObjectId.Parse(src.Id) : new ObjectId()));
+
+            Mapper.CreateMap<BoolResult, BaseModel>();
+            Mapper.CreateMap<BaseModel, BoolResult>();
         }
     }
 }

@@ -138,6 +138,9 @@
   <data name="Name" xml:space="preserve">
     <value />
   </data>
+  <data name="NoProductForEan" xml:space="preserve">
+    <value>Nie ma produktu dla numeru EAN {0}</value>
+  </data>
   <data name="Product" xml:space="preserve">
     <value>Produkt</value>
   </data>

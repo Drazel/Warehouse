@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.IO;
+using Warehouse.Models.Base;
 using WarehouseResource;
 
 namespace Warehouse.Models.WarehouseSocet
 {
-    public class WarehouseSocetModel
+    public class WarehouseSocetModel : BaseModel
     {
         public string Id { get; set; }
 
@@ -38,9 +39,13 @@ namespace Warehouse.Models.WarehouseSocet
 
         public double UseWeight { get; set; }
 
+        public double FreeWeight { get { return MaxWeight - UseWeight; } }
+
         public int MaxVolume { get { return Width * Height * Length; } }
 
         [Display(Name = "UseVolume", ResourceType = typeof(ResSocet))]
         public int UseVolume { get; set; }
+
+        public int FreeVolume { get { return MaxVolume - UseVolume; } }
     }
 }

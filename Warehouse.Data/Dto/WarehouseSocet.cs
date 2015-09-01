@@ -23,7 +23,7 @@ namespace Warehouse.Data.Dto
         public int SocetNumber { get; set; }
 
         [BsonElementAttribute("SocetBarcode")]
-        public string SocetBarcode { get { return string.Format("{0}#{1}#{2}", RowBookstand, ShelfBookstand, SocetNumber); } }
+        public string SocetBarcode { get { return string.Format("{0}{1}{2}", RowBookstand.ToString().PadLeft(4, '0'), ShelfBookstand.ToString().PadLeft(4, '0'), SocetNumber.ToString().PadLeft(12, '0')); } }
 
         [BsonElementAttribute("Width")]
         public int Width { get; set; }

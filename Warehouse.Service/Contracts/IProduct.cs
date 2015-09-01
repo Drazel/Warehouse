@@ -23,7 +23,7 @@ namespace Warehouse.Service.Contracts
         Product GetProduct(string productId);
 
         [OperationContract]
-        string GetProductByEan(string ean);
+        Product GetProductByEan(string ean);
 
         #endregion
     }

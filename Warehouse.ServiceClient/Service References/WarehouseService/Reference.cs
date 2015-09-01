@@ -177,10 +177,10 @@ namespace Warehouse.ServiceClient.WarehouseService {
         System.Threading.Tasks.Task<Warehouse.Data.Dto.Product> GetProductAsync(string productId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByEan", ReplyAction="http://tempuri.org/IProduct/GetProductByEanResponse")]
-        string GetProductByEan(string ean);
+        Warehouse.Data.Dto.Product GetProductByEan(string ean);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByEan", ReplyAction="http://tempuri.org/IProduct/GetProductByEanResponse")]
-        System.Threading.Tasks.Task<string> GetProductByEanAsync(string ean);
+        System.Threading.Tasks.Task<Warehouse.Data.Dto.Product> GetProductByEanAsync(string ean);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -242,11 +242,11 @@ namespace Warehouse.ServiceClient.WarehouseService {
             return base.Channel.GetProductAsync(productId);
         }
         
-        public string GetProductByEan(string ean) {
+        public Warehouse.Data.Dto.Product GetProductByEan(string ean) {
             return base.Channel.GetProductByEan(ean);
         }
         
-        public System.Threading.Tasks.Task<string> GetProductByEanAsync(string ean) {
+        public System.Threading.Tasks.Task<Warehouse.Data.Dto.Product> GetProductByEanAsync(string ean) {
             return base.Channel.GetProductByEanAsync(ean);
         }
     }
@@ -280,10 +280,10 @@ namespace Warehouse.ServiceClient.WarehouseService {
         System.Threading.Tasks.Task<Warehouse.Data.Dto.WarehouseSocet> GetWarehouseSocetAsync(string socetId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouseSocet/GetSocetByBarcode", ReplyAction="http://tempuri.org/IWarehouseSocet/GetSocetByBarcodeResponse")]
-        string GetSocetByBarcode(string barcode);
+        Warehouse.Data.Dto.WarehouseSocet GetSocetByBarcode(string barcode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWarehouseSocet/GetSocetByBarcode", ReplyAction="http://tempuri.org/IWarehouseSocet/GetSocetByBarcodeResponse")]
-        System.Threading.Tasks.Task<string> GetSocetByBarcodeAsync(string barcode);
+        System.Threading.Tasks.Task<Warehouse.Data.Dto.WarehouseSocet> GetSocetByBarcodeAsync(string barcode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -345,11 +345,11 @@ namespace Warehouse.ServiceClient.WarehouseService {
             return base.Channel.GetWarehouseSocetAsync(socetId);
         }
         
-        public string GetSocetByBarcode(string barcode) {
+        public Warehouse.Data.Dto.WarehouseSocet GetSocetByBarcode(string barcode) {
             return base.Channel.GetSocetByBarcode(barcode);
         }
         
-        public System.Threading.Tasks.Task<string> GetSocetByBarcodeAsync(string barcode) {
+        public System.Threading.Tasks.Task<Warehouse.Data.Dto.WarehouseSocet> GetSocetByBarcodeAsync(string barcode) {
             return base.Channel.GetSocetByBarcodeAsync(barcode);
         }
     }
@@ -453,11 +453,23 @@ namespace Warehouse.ServiceClient.WarehouseService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddProductToSocet", ReplyAction="http://tempuri.org/ISocetProducts/AddProductToSocetResponse")]
         System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddProductToSocetAsync(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddProductIdToSocetId", ReplyAction="http://tempuri.org/ISocetProducts/AddProductIdToSocetIdResponse")]
+        Warehouse.Data.Result.BoolResult AddProductIdToSocetId(string productId, string socetId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddProductIdToSocetId", ReplyAction="http://tempuri.org/ISocetProducts/AddProductIdToSocetIdResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddProductIdToSocetIdAsync(string productId, string socetId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddManyProductToSocet", ReplyAction="http://tempuri.org/ISocetProducts/AddManyProductToSocetResponse")]
         Warehouse.Data.Result.BoolResult AddManyProductToSocet(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet, int count);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddManyProductToSocet", ReplyAction="http://tempuri.org/ISocetProducts/AddManyProductToSocetResponse")]
         System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddManyProductToSocetAsync(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddManyProductIdToSocetId", ReplyAction="http://tempuri.org/ISocetProducts/AddManyProductIdToSocetIdResponse")]
+        Warehouse.Data.Result.BoolResult AddManyProductIdToSocetId(string productId, string socetId, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/AddManyProductIdToSocetId", ReplyAction="http://tempuri.org/ISocetProducts/AddManyProductIdToSocetIdResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddManyProductIdToSocetIdAsync(string productId, string socetId, int count);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISocetProducts/GetProductFromSocet", ReplyAction="http://tempuri.org/ISocetProducts/GetProductFromSocetResponse")]
         Warehouse.Data.Result.BoolResult GetProductFromSocet(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet);
@@ -507,12 +519,28 @@ namespace Warehouse.ServiceClient.WarehouseService {
             return base.Channel.AddProductToSocetAsync(product, socet);
         }
         
+        public Warehouse.Data.Result.BoolResult AddProductIdToSocetId(string productId, string socetId) {
+            return base.Channel.AddProductIdToSocetId(productId, socetId);
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddProductIdToSocetIdAsync(string productId, string socetId) {
+            return base.Channel.AddProductIdToSocetIdAsync(productId, socetId);
+        }
+        
         public Warehouse.Data.Result.BoolResult AddManyProductToSocet(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet, int count) {
             return base.Channel.AddManyProductToSocet(product, socet, count);
         }
         
         public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddManyProductToSocetAsync(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet, int count) {
             return base.Channel.AddManyProductToSocetAsync(product, socet, count);
+        }
+        
+        public Warehouse.Data.Result.BoolResult AddManyProductIdToSocetId(string productId, string socetId, int count) {
+            return base.Channel.AddManyProductIdToSocetId(productId, socetId, count);
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddManyProductIdToSocetIdAsync(string productId, string socetId, int count) {
+            return base.Channel.AddManyProductIdToSocetIdAsync(productId, socetId, count);
         }
         
         public Warehouse.Data.Result.BoolResult GetProductFromSocet(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet) {

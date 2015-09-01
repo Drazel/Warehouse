@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attribute\BsonCollection.cs" />
+    <Compile Include="Dto\Order.cs" />
+    <Compile Include="Dto\OrderPosition.cs" />
     <Compile Include="Dto\Package.cs" />
     <Compile Include="Dto\Product.cs" />
     <Compile Include="Dto\Role.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Dto\Supply.cs" />
     <Compile Include="Dto\User.cs" />
     <Compile Include="Dto\WarehouseSocet.cs" />
+    <Compile Include="Enum\OrderStatus.cs" />
     <Compile Include="Helper\AttributeHelper.cs" />
     <Compile Include="Repository\ARespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

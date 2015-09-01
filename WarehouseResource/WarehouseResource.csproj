@@ -40,6 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResError.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResError.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResGlobal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,8 +65,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResSocet.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResWarehouse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResWarehouse.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ResError.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResError.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResGlobal.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResGlobal.Designer.cs</LastGenOutput>
@@ -77,6 +91,10 @@
     <EmbeddedResource Include="ResSocet.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResSocet.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResWarehouse.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResWarehouse.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

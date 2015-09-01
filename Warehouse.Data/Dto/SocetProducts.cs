@@ -10,12 +10,12 @@ using Warehouse.Data.Attribute;
 
 namespace Warehouse.Data.Dto
 {
-    [BsonCollection("WarehouseSocet")]  
+    [BsonCollection("SocetProducts")]  
     public class SocetProducts
     {
         public ObjectId Id { get; set; }
 
-        [BsonElement("WarehouseSocetId")]
+        [BsonElementAttribute("WarehouseSocetId")]
         public MongoDBRef WarehouseSocetId { get; set; }
 
         [BsonElementAttribute("ProductId")]
@@ -33,6 +33,13 @@ namespace Warehouse.Data.Dto
         {
             WarehouseSocetId = new MongoDBRef("WarehouseSocet", warehouseSocet.Id);
             ProductId = new MongoDBRef("Product", product.Id);
+            this.TimeStamp = DateTime.Now;
+        }
+
+        public SocetProducts(string productId, string warehouseSocetId)
+        {
+            WarehouseSocetId = new MongoDBRef("WarehouseSocet", warehouseSocetId);
+            ProductId = new MongoDBRef("Product", productId);
             this.TimeStamp = DateTime.Now;
         }
     }

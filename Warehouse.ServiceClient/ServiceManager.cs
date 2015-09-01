@@ -16,6 +16,7 @@ namespace Warehouse.ServiceClient
         private ProductClient _productClient;
         private WarehouseSocetClient _warehouseSocetClient;
         private PackageClient _packageClient;
+        private SocetProductsClient _socetProductsClient;
 
         #endregion
 
@@ -111,6 +112,24 @@ namespace Warehouse.ServiceClient
             }
         }
 
+        public SocetProductsClient SocetProductsClient
+        {
+            get
+            {
+                if (_socetProductsClient == null)
+                {
+                    CreateSocetProductsClient();
+                }
+
+                if (_socetProductsClient.State == CommunicationState.Faulted)
+                {
+                    CreateSocetProductsClient();
+                }
+
+                return _socetProductsClient;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -185,6 +204,12 @@ namespace Warehouse.ServiceClient
             ((ICommunicationObject) _packageClient).Faulted += Service_Faulted;
         }
 
+        private void CreateSocetProductsClient()
+        {
+            _socetProductsClient = new SocetProductsClient("BasicHttpBinding_ISocetProducts");
+            ((ICommunicationObject)_socetProductsClient).Faulted += Service_Faulted;
+        }
+
         private static TSource GetClient<TSource>() where TSource : class
         {
             if (typeof (TSource) == typeof (WarehouseService.ServiceClient))
@@ -195,6 +220,8 @@ namespace Warehouse.ServiceClient
                 return Instance.WarehouseSocetClient as TSource;
             if (typeof (TSource) == typeof (PackageClient))
                 return Instance.PackageClient as TSource;
+            if (typeof(TSource) == typeof(SocetProductsClient))
+                return Instance.SocetProductsClient as TSource;
             throw new ArgumentException("Invalid generic WCF Client!");
         }
 

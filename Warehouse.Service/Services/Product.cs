@@ -34,7 +34,7 @@ namespace Warehouse.Service
             return productRepository.GetById(productId);
         }
 
-        public string GetProductByEan(string ean)
+        public Product GetProductByEan(string ean)
         {
             return productRepository.GetProductByEan(ean);
         }

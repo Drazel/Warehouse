@@ -1,0 +1,91 @@
+﻿@using WarehouseResource
+@{
+    ViewBag.Title = "ProductToSocet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/WarehouseCtrl.js")
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResWarehouse.ProductToSocet</h1>
+    </div>
+</div>
+
+    <div class="panel panel-default" ng-app="WarehouseApp" ng-controller="WarehouseCtrl">
+        <div class="panel panel-primary">
+            <label>{{productToSocetErrorMessage}}</label>
+            <div class="panel-heading">@ResSocet.Socet</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label>{{socetErrorMessage}}</label>
+                    </div>
+                    <div class="col-xs-2">
+                        <label>@ResSocet.Socet</label>
+                    </div>
+                    <div class="col-xs-10">
+                        <input type="text" ng-model="Barcode" ng-keyup="getSocet()">
+                    </div>
+                    <div class="col-xs-4">
+                        <label>@ResSocet.RowBookstand {{socetRow}}</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>@ResSocet.ShelfBookstand {{socetShelf}}</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label>@ResSocet.SocetNumber {{socetNumber}}</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>@ResSocet.FreeVolume {{freeWeight}}</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>@ResSocet.FreeWeight {{freeVolume}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">@ResProduct.Product</div>
+            <div class="panel-body">
+                <div class="col-xs-12">
+                    <label>{{productErrorMessage}}</label>
+                </div>
+                <div class="col-xs-2">
+                    <label>@ResProduct.Product</label>
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" ng-model="Ean" ng-keyup="getProduct()">
+                </div>
+                <div class="col-xs-4">
+                    <label>{{productName}}</label>
+                </div>
+                <div class="col-xs-4">
+                    <label>@ResGlobal.Weight {{productWeight}}</label>
+                </div>
+                <div class="col-xs-4">
+                    <label>@ResGlobal.Volume {{productVolume}}</label>
+                </div>
+                <div class="col-xs-2">
+                    <label>@ResGlobal.Count</label>
+                </div>
+                <div class="col-xs-10">
+                    <input type="text" ng-model="count">
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" ng-click="setProductToSocet()" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Dodaj</button>
+                        <button type="submit" ng-click="clearSocetAndProduct()" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> Anuluj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

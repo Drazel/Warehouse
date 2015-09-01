@@ -124,6 +124,15 @@ namespace WarehouseResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie ma produktu dla numeru EAN {0}.
+        /// </summary>
+        public static string NoProductForEan {
+            get {
+                return ResourceManager.GetString("NoProductForEan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Produkt.
         /// </summary>
         public static string Product {

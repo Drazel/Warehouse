@@ -23,7 +23,7 @@ namespace Warehouse.Service.Contracts
         WarehouseSocet GetWarehouseSocet(string socetId);
 
         [OperationContract]
-        string GetSocetByBarcode(string barcode);
+        WarehouseSocet GetSocetByBarcode(string barcode);
 
         #endregion
     }

@@ -31,9 +31,9 @@ namespace Warehouse.ServiceClient.Clients
             return ServiceManager.Call<ProductClient, Product>(c => c.GetProduct(productId));
         }
 
-        public static string GetProductByEan(string ean)
+        public static Product GetProductByEan(string ean)
         {
-            return ServiceManager.Call<ProductClient, string>(c => c.GetProductByEan(ean));
+            return ServiceManager.Call<ProductClient, Product>(c => c.GetProductByEan(ean));
         }
     }
 }

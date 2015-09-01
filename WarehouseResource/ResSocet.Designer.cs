@@ -79,6 +79,24 @@ namespace WarehouseResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wolna przestrzeń.
+        /// </summary>
+        public static string FreeVolume {
+            get {
+                return ResourceManager.GetString("FreeVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit wagi.
+        /// </summary>
+        public static string FreeWeight {
+            get {
+                return ResourceManager.GetString("FreeWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maksymalna wysokość.
         /// </summary>
         public static string Height {
@@ -129,6 +147,15 @@ namespace WarehouseResource {
         public static string MaxWeight {
             get {
                 return ResourceManager.GetString("MaxWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie ma gniazda magazynowego dla podanego kodu.
+        /// </summary>
+        public static string NoSocetToBarcode {
+            get {
+                return ResourceManager.GetString("NoSocetToBarcode", resourceCulture);
             }
         }
         

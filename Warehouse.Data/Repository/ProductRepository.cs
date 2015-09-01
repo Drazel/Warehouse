@@ -8,11 +8,11 @@ namespace Warehouse.Data.Repository
     {
         #region Methods
 
-        public string GetProductByEan(string ean)
+        public Product GetProductByEan(string ean)
         {
             var filter = Builders<Product>.Filter.Eq("Ean", ean);
             var product = GetByFiltrFirst(filter);
-            return product.ToJson();
+            return product;
         }
 
         #endregion

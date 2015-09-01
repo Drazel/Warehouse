@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Warehouse.Models.Base;
 using WarehouseResource;
 
 namespace Warehouse.Models.Product
 {
-    public class ProductModel
+    public class ProductModel : BaseModel
     {
         #region Properties
 
@@ -32,6 +33,9 @@ namespace Warehouse.Models.Product
         [Required]
         [Display(Name = "Weight", ResourceType = typeof (ResGlobal))]
         public double Weight { get; set; }
+
+        [Display(Name = "Volume", ResourceType = typeof(ResGlobal))]
+        public double Volume { get { return Width*Height*Length; } }
 
         #endregion
     }

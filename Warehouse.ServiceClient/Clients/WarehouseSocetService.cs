@@ -31,9 +31,9 @@ namespace Warehouse.ServiceClient.Clients
             return ServiceManager.Call<WarehouseSocetClient, WarehouseSocet>(c => c.GetWarehouseSocet(warehouseSocetId));
         }
 
-        public static string GetSocetByBarcode(string barcode)
+        public static WarehouseSocet GetSocetByBarcode(string barcode)
         {
-            return ServiceManager.Call<WarehouseSocetClient, string>(c => c.GetSocetByBarcode(barcode));
+            return ServiceManager.Call<WarehouseSocetClient, WarehouseSocet>(c => c.GetSocetByBarcode(barcode));
         }
     }
 }

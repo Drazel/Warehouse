@@ -32,7 +32,7 @@ namespace Warehouse.Service
             return warehouseSocetRepository.GetById(socetId);
         }
 
-        public string GetSocetByBarcode(string barcode)
+        public Data.Dto.WarehouseSocet GetSocetByBarcode(string barcode)
         {
             return warehouseSocetRepository.GetSocetByBarcode(barcode);
         }

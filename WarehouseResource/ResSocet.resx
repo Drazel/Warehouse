@@ -123,6 +123,12 @@
   <data name="DemensionsSocet" xml:space="preserve">
     <value>Wymiary gniazda</value>
   </data>
+  <data name="FreeVolume" xml:space="preserve">
+    <value>Wolna przestrzeń</value>
+  </data>
+  <data name="FreeWeight" xml:space="preserve">
+    <value>Limit wagi</value>
+  </data>
   <data name="Height" xml:space="preserve">
     <value>Maksymalna wysokość</value>
   </data>
@@ -140,6 +146,9 @@
   </data>
   <data name="MaxWeight" xml:space="preserve">
     <value>Maksymalne obciążenie</value>
+  </data>
+  <data name="NoSocetToBarcode" xml:space="preserve">
+    <value>Nie ma gniazda magazynowego dla podanego kodu</value>
   </data>
   <data name="RowBookstand" xml:space="preserve">
     <value>Rząd regału</value>

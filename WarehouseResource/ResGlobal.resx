@@ -123,6 +123,9 @@
   <data name="Admin" xml:space="preserve">
     <value>Admin</value>
   </data>
+  <data name="Count" xml:space="preserve">
+    <value>Ilość</value>
+  </data>
   <data name="Height" xml:space="preserve">
     <value>Wysokość</value>
   </data>
@@ -131,6 +134,15 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="SocetProdukt" xml:space="preserve">
+    <value>Produkty do gniazda</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Objętość</value>
+  </data>
+  <data name="Warehouse" xml:space="preserve">
+    <value>Magazyn</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Waga</value>
