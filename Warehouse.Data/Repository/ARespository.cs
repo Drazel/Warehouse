@@ -162,6 +162,11 @@ namespace Warehouse.Data.Repository
             return RemoveAsync(ObjectId.Parse(id)).Result;
         }
 
+        protected FilterDefinition<T> GetFilterById(string id)
+        {
+            return Builders<T>.Filter.Eq("_id", ObjectId.Parse(id));
+        }
+
         protected FilterDefinition<T> GetFilterById(ObjectId id)
         {
             return Builders<T>.Filter.Eq("_id", id);
@@ -176,12 +181,13 @@ namespace Warehouse.Data.Repository
             return Builders<T>.Filter.Eq("_id", id);
         }
 
-        protected UpdateDefinition<T> GetUpdateDefinition(T item)
+        protected virtual UpdateDefinition<T> GetUpdateDefinition(T item)
         {
             UpdateDefinition<T> result = null;
             var elemnts = AttributeHelper.GetBsonElementAttributeList(item);
 
             var update = Builders<T>.Update;
+           
             foreach (var elemnt in elemnts)
             {
                 if (result == null)
@@ -210,9 +216,31 @@ namespace Warehouse.Data.Repository
             return result;
         }
 
+        protected async Task<BoolResult> UpdateAsync(string id, UpdateDefinition<T> update)
+        {
+            var result = new BoolResult();
+            try
+            {
+                var collection = GetCollection();
+                var filter = GetFilterById(id);
+                await collection.UpdateOneAsync(filter, update);
+                result.SetSucces();
+            }
+            catch (Exception ex)
+            {
+                result.SetError(ex);
+            }
+            return result;
+        }
+
         public BoolResult Update(T item)
         {
             return UpdateAsync(item).Result;
+        }
+
+        public BoolResult Update(string id, UpdateDefinition<T> update)
+        {
+            return UpdateAsync(id, update).Result;
         }
 
         public BoolResult Update(List<T> items)

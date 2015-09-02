@@ -1,0 +1,42 @@
+﻿@using Warehouse.Data.Enum
+@using WarehouseResource
+@model System.Collections.Generic.List<Warehouse.Models.ProductList.OutProductListModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResGlobal.OutProductList</h1>
+    </div>
+</div>
+
+@foreach (var outProductList in Model)
+{
+    <div class="panel @outProductList.PanelType">
+        <div class="panel-heading">
+            <div class="row">
+                @outProductList.Date.ToShortDateString()
+            </div>
+        </div>
+        <div class="panel-body">
+            @foreach (var item in outProductList.Products)
+            {
+                <div class="row">
+                    <div class="col-xs-4">
+                        @item.ProductEan
+                    </div>
+                    <div class="col-xs-4">
+                        @item.ProductName
+                    </div>
+                    <div class="col-xs-4">
+                        @item.ProductCount
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <br />
+}

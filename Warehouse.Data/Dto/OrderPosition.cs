@@ -13,8 +13,6 @@ namespace Warehouse.Data.Dto
     [BsonCollection("OrderPosition")]
     public class OrderPosition
     {
-        public ObjectId Id { get; set; }
-
         [BsonElementAttribute("Lp")]
         public int Lp { get; set; }
 
@@ -23,6 +21,19 @@ namespace Warehouse.Data.Dto
 
         [BsonElementAttribute("Count")]
         public int Count { get; set; }
-   
+
+        public void SetProduct(ObjectId id)
+        {
+            ProductId = new MongoDBRef("Product", id);
+        }
+
+        public OrderPosition(){ }
+
+        public OrderPosition(int lp, string productId, int count)
+        {
+            Lp = lp;
+            Count = count;
+            SetProduct(ObjectId.Parse(productId));
+        }
     }
 }

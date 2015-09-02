@@ -115,6 +115,15 @@ namespace WarehouseResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lista zejścia.
+        /// </summary>
+        public static string OutProductList {
+            get {
+                return ResourceManager.GetString("OutProductList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Produkty do gniazda.
         /// </summary>
         public static string SocetProdukt {
@@ -138,6 +147,15 @@ namespace WarehouseResource {
         public static string Warehouse {
             get {
                 return ResourceManager.GetString("Warehouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stany magazynowe.
+        /// </summary>
+        public static string WarehouseProduct {
+            get {
+                return ResourceManager.GetString("WarehouseProduct", resourceCulture);
             }
         }
         

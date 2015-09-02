@@ -7,6 +7,8 @@
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" />
+      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_Ping_InputMessage">
@@ -135,6 +137,18 @@
   <wsdl:message name="ISocetProducts_GetManyProductFromSocet_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetManyProductFromSocetResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrder_AddOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_AddOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_GetOutProductList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutProductList" />
+  </wsdl:message>
+  <wsdl:message name="IOrder_GetOutProductList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutProductListResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Ping">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Ping" message="tns:IService_Ping_InputMessage" />
@@ -227,6 +241,16 @@
     <wsdl:operation name="GetManyProductFromSocet">
       <wsdl:input wsaw:Action="http://tempuri.org/ISocetProducts/GetManyProductFromSocet" message="tns:ISocetProducts_GetManyProductFromSocet_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISocetProducts/GetManyProductFromSocetResponse" message="tns:ISocetProducts_GetManyProductFromSocet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IOrder">
+    <wsdl:operation name="AddOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/AddOrder" message="tns:IOrder_AddOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/AddOrderResponse" message="tns:IOrder_AddOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutProductList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrder/GetOutProductList" message="tns:IOrder_GetOutProductList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrder/GetOutProductListResponse" message="tns:IOrder_GetOutProductList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -433,6 +457,27 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IOrder" type="tns:IOrder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrder/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutProductList">
+      <soap:operation soapAction="http://tempuri.org/IOrder/GetOutProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
       <soap:address location="http://localhost:57498/Service.svc" />
@@ -447,6 +492,9 @@
       <soap:address location="http://localhost:57498/Service.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ISocetProducts" binding="tns:BasicHttpBinding_ISocetProducts">
+      <soap:address location="http://localhost:57498/Service.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IOrder" binding="tns:BasicHttpBinding_IOrder">
       <soap:address location="http://localhost:57498/Service.svc" />
     </wsdl:port>
   </wsdl:service>

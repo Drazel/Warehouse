@@ -135,6 +135,9 @@
   <data name="Name" xml:space="preserve">
     <value>Nazwa</value>
   </data>
+  <data name="OutProductList" xml:space="preserve">
+    <value>Lista zejścia</value>
+  </data>
   <data name="SocetProdukt" xml:space="preserve">
     <value>Produkty do gniazda</value>
   </data>
@@ -143,6 +146,9 @@
   </data>
   <data name="Warehouse" xml:space="preserve">
     <value>Magazyn</value>
+  </data>
+  <data name="WarehouseProduct" xml:space="preserve">
+    <value>Stany magazynowe</value>
   </data>
   <data name="Weight" xml:space="preserve">
     <value>Waga</value>

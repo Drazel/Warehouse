@@ -299,4 +299,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="order" nillable="true" type="q35:Order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="AddOrderResult" nillable="true" type="q36:BoolResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutProductList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutProductListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetOutProductListResult" nillable="true" type="q37:ArrayOfOutProductList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

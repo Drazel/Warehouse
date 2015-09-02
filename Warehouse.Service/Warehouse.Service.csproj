@@ -80,6 +80,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IOrder.cs" />
     <Compile Include="Contracts\IPackage.cs" />
     <Compile Include="Contracts\IProduct.cs" />
     <Compile Include="Contracts\ISocetProducts.cs" />
@@ -89,6 +90,7 @@
       <DependentUpon>Service.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Order.cs" />
     <Compile Include="Services\Package.cs" />
     <Compile Include="Services\Product.cs" />
     <Compile Include="Services\SocetProducts.cs" />

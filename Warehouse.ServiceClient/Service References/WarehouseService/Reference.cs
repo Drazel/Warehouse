@@ -101,6 +101,35 @@ namespace Warehouse.ServiceClient.WarehouseService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MongoDBRef", Namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver")]
+    [System.SerializableAttribute()]
+    public partial class MongoDBRef : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WarehouseService.IService")]
     public interface IService {
@@ -557,6 +586,67 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> GetManyProductFromSocetAsync(Warehouse.Data.Dto.Product product, Warehouse.Data.Dto.WarehouseSocet socet, int count) {
             return base.Channel.GetManyProductFromSocetAsync(product, socet, count);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WarehouseService.IOrder")]
+    public interface IOrder {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/AddOrder", ReplyAction="http://tempuri.org/IOrder/AddOrderResponse")]
+        Warehouse.Data.Result.BoolResult AddOrder(Warehouse.Data.Dto.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/AddOrder", ReplyAction="http://tempuri.org/IOrder/AddOrderResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddOrderAsync(Warehouse.Data.Dto.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/GetOutProductList", ReplyAction="http://tempuri.org/IOrder/GetOutProductListResponse")]
+        Warehouse.Data.Result.OutProductList[] GetOutProductList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrder/GetOutProductList", ReplyAction="http://tempuri.org/IOrder/GetOutProductListResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.OutProductList[]> GetOutProductListAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IOrderChannel : Warehouse.ServiceClient.WarehouseService.IOrder, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class OrderClient : System.ServiceModel.ClientBase<Warehouse.ServiceClient.WarehouseService.IOrder>, Warehouse.ServiceClient.WarehouseService.IOrder {
+        
+        public OrderClient() {
+        }
+        
+        public OrderClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public OrderClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public OrderClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public OrderClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public Warehouse.Data.Result.BoolResult AddOrder(Warehouse.Data.Dto.Order order) {
+            return base.Channel.AddOrder(order);
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddOrderAsync(Warehouse.Data.Dto.Order order) {
+            return base.Channel.AddOrderAsync(order);
+        }
+        
+        public Warehouse.Data.Result.OutProductList[] GetOutProductList() {
+            return base.Channel.GetOutProductList();
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.OutProductList[]> GetOutProductListAsync() {
+            return base.Channel.GetOutProductListAsync();
         }
     }
 }

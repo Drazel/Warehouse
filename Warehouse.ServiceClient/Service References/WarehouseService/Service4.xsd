@@ -8,4 +8,31 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BoolResult" nillable="true" type="tns:BoolResult" />
+  <xs:complexType name="ArrayOfOutProductList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutProductList" nillable="true" type="tns:OutProductList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutProductList" nillable="true" type="tns:ArrayOfOutProductList" />
+  <xs:complexType name="OutProductList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProductSum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OutProductList" nillable="true" type="tns:OutProductList" />
+  <xs:complexType name="ArrayOfProductSum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductSum" nillable="true" type="tns:ProductSum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductSum" nillable="true" type="tns:ArrayOfProductSum" />
+  <xs:complexType name="ProductSum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductSum" nillable="true" type="tns:ProductSum" />
 </xs:schema>

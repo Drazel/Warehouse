@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
+  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" />
+  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver" />
   <xs:complexType name="Product">
     <xs:sequence>
       <xs:element minOccurs="0" name="Ean" nillable="true" type="xs:string" />
@@ -56,4 +58,36 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfPackage" nillable="true" type="tns:ArrayOfPackage" />
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlatNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q4:ObjectId" />
+      <xs:element minOccurs="0" name="OrderNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" minOccurs="0" name="OrderStatus" type="q5:eOrderStatus" />
+      <xs:element minOccurs="0" name="Positions" nillable="true" type="tns:ArrayOfOrderPosition" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Realized" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RecipientId" type="xs:int" />
+      <xs:element minOccurs="0" name="SendDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="ArrayOfOrderPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderPosition" nillable="true" type="tns:OrderPosition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderPosition" nillable="true" type="tns:ArrayOfOrderPosition" />
+  <xs:complexType name="OrderPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Lp" type="xs:int" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MongoDB.Driver" minOccurs="0" name="ProductId" nillable="true" type="q6:MongoDBRef" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderPosition" nillable="true" type="tns:OrderPosition" />
 </xs:schema>
