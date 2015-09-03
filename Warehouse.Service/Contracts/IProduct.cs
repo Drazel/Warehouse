@@ -25,6 +25,9 @@ namespace Warehouse.Service.Contracts
         [OperationContract]
         Product GetProductByEan(string ean);
 
+        [OperationContract]
+        List<ProductSum> GetWarehouseProductSum();
+
         #endregion
     }
 }

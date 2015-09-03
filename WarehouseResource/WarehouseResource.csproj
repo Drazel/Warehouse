@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResSocet.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResSupply.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResSupply.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResWarehouse.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +96,10 @@
     <EmbeddedResource Include="ResSocet.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResSocet.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResSupply.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResSupply.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResWarehouse.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

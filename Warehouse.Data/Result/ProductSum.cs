@@ -12,5 +12,15 @@ namespace Warehouse.Data.Result
         public string ProductName { get; set; }
         public string ProductEan { get; set; }
         public int ProductCount { get; set; }
+
+        public ProductSum() { }
+
+        public ProductSum(string id, string name, string ean, int count)
+        {
+            ProductId = id;
+            ProductName = name;
+            ProductEan = ean;
+            ProductCount = count;
+        }
     }
 }

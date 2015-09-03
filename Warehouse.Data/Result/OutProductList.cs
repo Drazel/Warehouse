@@ -39,13 +39,7 @@ namespace Warehouse.Data.Result
             {
                 var repo = new ProductRepository();
                 var product = repo.GetById(id);
-                var productSum = new ProductSum
-                                 {
-                                     ProductId = position.ProductId.Id.ToString(),
-                                     ProductName = product.Name,
-                                     ProductEan = product.Ean,
-                                     ProductCount = position.Count
-                                 };
+                var productSum = new ProductSum(position.ProductId.Id.ToString(), product.Name, product.Ean, position.Count);
                 Products.Add(productSum);
             }
             else

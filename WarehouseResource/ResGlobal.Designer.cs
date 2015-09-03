@@ -79,11 +79,29 @@ namespace WarehouseResource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zwiń.
+        /// </summary>
+        public static string Collapse {
+            get {
+                return ResourceManager.GetString("Collapse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ilość.
         /// </summary>
         public static string Count {
             get {
                 return ResourceManager.GetString("Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rozwiń.
+        /// </summary>
+        public static string Expand {
+            get {
+                return ResourceManager.GetString("Expand", resourceCulture);
             }
         }
         

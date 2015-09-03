@@ -210,6 +210,12 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetProductByEan", ReplyAction="http://tempuri.org/IProduct/GetProductByEanResponse")]
         System.Threading.Tasks.Task<Warehouse.Data.Dto.Product> GetProductByEanAsync(string ean);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetWarehouseProductSum", ReplyAction="http://tempuri.org/IProduct/GetWarehouseProductSumResponse")]
+        Warehouse.Data.Result.ProductSum[] GetWarehouseProductSum();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProduct/GetWarehouseProductSum", ReplyAction="http://tempuri.org/IProduct/GetWarehouseProductSumResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.ProductSum[]> GetWarehouseProductSumAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -277,6 +283,14 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         public System.Threading.Tasks.Task<Warehouse.Data.Dto.Product> GetProductByEanAsync(string ean) {
             return base.Channel.GetProductByEanAsync(ean);
+        }
+        
+        public Warehouse.Data.Result.ProductSum[] GetWarehouseProductSum() {
+            return base.Channel.GetWarehouseProductSum();
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.ProductSum[]> GetWarehouseProductSumAsync() {
+            return base.Channel.GetWarehouseProductSumAsync();
         }
     }
     
@@ -647,6 +661,53 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         public System.Threading.Tasks.Task<Warehouse.Data.Result.OutProductList[]> GetOutProductListAsync() {
             return base.Channel.GetOutProductListAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WarehouseService.ISupply")]
+    public interface ISupply {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/AddSupply", ReplyAction="http://tempuri.org/ISupply/AddSupplyResponse")]
+        Warehouse.Data.Result.BoolResult AddSupply(Warehouse.Data.Dto.Supply supply);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/AddSupply", ReplyAction="http://tempuri.org/ISupply/AddSupplyResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddSupplyAsync(Warehouse.Data.Dto.Supply supply);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ISupplyChannel : Warehouse.ServiceClient.WarehouseService.ISupply, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SupplyClient : System.ServiceModel.ClientBase<Warehouse.ServiceClient.WarehouseService.ISupply>, Warehouse.ServiceClient.WarehouseService.ISupply {
+        
+        public SupplyClient() {
+        }
+        
+        public SupplyClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public SupplyClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public SupplyClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public SupplyClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public Warehouse.Data.Result.BoolResult AddSupply(Warehouse.Data.Dto.Supply supply) {
+            return base.Channel.AddSupply(supply);
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddSupplyAsync(Warehouse.Data.Dto.Supply supply) {
+            return base.Channel.AddSupplyAsync(supply);
         }
     }
 }

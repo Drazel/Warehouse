@@ -37,11 +37,20 @@ namespace Warehouse.Data.Dto
         [BsonElementAttribute("MaxWeight")]
         public double MaxWeight { get; set; }
 
+        [BsonElementAttribute("MaxVolume")]
+        public int MaxVolume { get { return Width * Height * Length; } }
+
         [BsonElementAttribute("UseWeight")]
         public double UseWeight { get; set; }
 
         [BsonElementAttribute("UseVolume")]
         public int UseVolume { get; set; }
+
+        [BsonElementAttribute("FreeWeight")]
+        public double FreeWeight { get { return MaxWeight - UseWeight; } }
+
+        [BsonElementAttribute("FreeVolume")]
+        public int FreeVolume { get { return MaxVolume - UseVolume; } }
 
         #endregion
 

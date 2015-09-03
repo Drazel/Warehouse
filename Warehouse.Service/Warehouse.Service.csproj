@@ -84,6 +84,7 @@
     <Compile Include="Contracts\IPackage.cs" />
     <Compile Include="Contracts\IProduct.cs" />
     <Compile Include="Contracts\ISocetProducts.cs" />
+    <Compile Include="Contracts\ISupply.cs" />
     <Compile Include="Contracts\IWarehouseSocet.cs" />
     <Compile Include="Contracts\IService.cs" />
     <Compile Include="Service.svc.cs">
@@ -94,6 +95,7 @@
     <Compile Include="Services\Package.cs" />
     <Compile Include="Services\Product.cs" />
     <Compile Include="Services\SocetProducts.cs" />
+    <Compile Include="Services\Supply.cs" />
     <Compile Include="Services\WarehouseSocet.cs" />
   </ItemGroup>
   <ItemGroup />

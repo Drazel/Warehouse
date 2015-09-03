@@ -38,5 +38,21 @@ namespace Warehouse.Service
         {
             return productRepository.GetProductByEan(ean);
         }
+
+        public List<ProductSum> GetWarehouseProductSum()
+        {
+            var result = new List<ProductSum>();
+            var productList = productRepository.GetItemsList();
+            var productSocets = socetProductRepository.GetItemsList();
+
+            foreach (var product in productList)
+            {
+                var productCount = productSocets.Count(x => x.ProductId.Id.ToString() == product.Id.ToString());
+                var productSum = new ProductSum(product.Id.ToString(), product.Name, product.Ean, productCount);
+                result.Add(productSum);
+            }
+
+            return result;
+        }
     }
 }

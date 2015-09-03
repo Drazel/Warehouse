@@ -1,0 +1,36 @@
+﻿@using WarehouseResource
+@model System.Collections.Generic.List<Warehouse.Models.ProductList.ProductSumModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResGlobal.WarehouseProduct</h1>
+    </div>
+</div>
+
+<div class="panel  panel-primary">
+    <div class="panel-heading">
+        <div class="row"><span>@ResGlobal.WarehouseProduct</span>
+        </div>
+    </div>
+    <div class="panel-body">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-xs-4">
+                    @item.ProductEan
+                </div>
+                <div class="col-xs-4">
+                    @item.ProductName
+                </div>
+                <div class="col-xs-4">
+                    @item.ProductCount
+                </div>
+            </div>
+        }
+    </div>
+</div>

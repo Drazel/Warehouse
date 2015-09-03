@@ -18,6 +18,7 @@ namespace Warehouse.ServiceClient
         private PackageClient _packageClient;
         private SocetProductsClient _socetProductsClient;
         private OrderClient _orderClient;
+        private SupplyClient _supplyClient;
 
         #endregion
 
@@ -149,6 +150,23 @@ namespace Warehouse.ServiceClient
             }
         }
 
+        public SupplyClient SupplyClient
+        {
+            get
+            {
+                if (_supplyClient == null)
+                {
+                    CreateSupplyClient();
+                }
+
+                if (_supplyClient.State == CommunicationState.Faulted)
+                {
+                    CreateSupplyClient();
+                }
+
+                return _supplyClient;
+            }
+        }
 
         #endregion
 
@@ -236,6 +254,12 @@ namespace Warehouse.ServiceClient
             ((ICommunicationObject)_orderClient).Faulted += Service_Faulted;
         }
 
+        private void CreateSupplyClient()
+        {
+            _supplyClient = new SupplyClient("BasicHttpBinding_ISupply");
+            ((ICommunicationObject)_supplyClient).Faulted += Service_Faulted;
+        }
+
         private static TSource GetClient<TSource>() where TSource : class
         {
             if (typeof (TSource) == typeof (WarehouseService.ServiceClient))
@@ -250,6 +274,8 @@ namespace Warehouse.ServiceClient
                 return Instance.SocetProductsClient as TSource;
             if (typeof(TSource) == typeof(OrderClient))
                 return Instance.OrderClient as TSource;
+            if (typeof(TSource) == typeof(SupplyClient))
+                return Instance.SupplyClient as TSource;
             throw new ArgumentException("Invalid generic WCF Client!");
         }
 

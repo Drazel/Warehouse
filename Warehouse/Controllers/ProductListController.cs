@@ -21,7 +21,9 @@ namespace Warehouse.Controllers
 
         public ActionResult WarehouseProduct()
         {
-            return View();
+            var productSum = ProductService.GetWarehouseProductSum();
+            var model = Mapper.Map<List<ProductSumModel>>(productSum);
+            return View(model.OrderBy(x => x.ProductName).ToList());
         }
     }
 }

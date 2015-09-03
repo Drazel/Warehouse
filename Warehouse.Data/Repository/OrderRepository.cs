@@ -18,7 +18,6 @@ namespace Warehouse.Data.Repository
             var update = Builders<Order>.Update;
 
             var result = update.Set(x => x.Positions, item.Positions);
-            result = result.Set(x => x.Realized, item.Realized);
             result = result.Set(x => x.OrderStatus, item.OrderStatus);
             return result;
         }
@@ -56,6 +55,18 @@ namespace Warehouse.Data.Repository
             }
 
             return result;
+        }
+
+        public List<Order> GetNewOrder()
+        {
+            var filter = Builders<Order>.Filter.Eq(x => x.OrderStatus, eOrderStatus.New);
+            return GetByFiltr(filter);
+        }
+
+        public Order GetOrderByOrderNumber(string orderNumber)
+        {
+            var filter = Builders<Order>.Filter.Eq(x => x.OrderNumber, orderNumber);
+            return GetByFiltrFirst(filter);
         }
     }
 }

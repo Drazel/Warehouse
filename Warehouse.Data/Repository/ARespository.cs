@@ -72,9 +72,21 @@ namespace Warehouse.Data.Repository
             return await list.FirstOrDefaultAsync();
         }
 
+        private async Task<T> GetByFiltrFirstAsync(FilterDefinition<T> filter, SortDefinition<T> sort)
+        {
+            var collection = GetCollection();
+            var list = collection.Find(filter).Sort(sort);
+            return await list.FirstOrDefaultAsync();
+        }
+
         public T GetByFiltrFirst(FilterDefinition<T> filter)
         {
             return GetByFiltrFirstAsync(filter).Result;
+        }
+
+        public T GetByFiltrFirst(FilterDefinition<T> filter, SortDefinition<T> sort)
+        {
+            return GetByFiltrFirstAsync(filter, sort).Result;
         }
 
         private async Task<List<T>> GetByFiltrAsync(FilterDefinition<T> filter)
@@ -84,9 +96,21 @@ namespace Warehouse.Data.Repository
             return await list.ToListAsync();
         }
 
+        private async Task<List<T>> GetByFiltrAsync(FilterDefinition<T> filter, SortDefinition<T> sort)
+        {
+            var collection = GetCollection();
+            var list = collection.Find(filter).Sort(sort);
+            return await list.ToListAsync();
+        }
+
         public List<T> GetByFiltr(FilterDefinition<T> filter)
         {
             return GetByFiltrAsync(filter).Result;
+        }
+
+        public List<T> GetByFiltr(FilterDefinition<T> filter, SortDefinition<T> sort)
+        {
+            return GetByFiltrAsync(filter, sort).Result;
         }
 
         public T GetById(string id)

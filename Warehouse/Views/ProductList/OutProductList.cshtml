@@ -24,7 +24,7 @@
         <div class="panel-body">
             @foreach (var item in outProductList.Products)
             {
-                <div class="row">
+                <div class="row item-content" style="display: none;">
                     <div class="col-xs-4">
                         @item.ProductEan
                     </div>
@@ -36,7 +36,28 @@
                     </div>
                 </div>
             }
+            <button type="button" class="btn btn-sm btn-primary pull-right message-show-button" onclick=" showMessage($(this)); ">
+                <i class="glyphicon glyphicon-chevron-down"></i> @ResGlobal.Expand
+            </button>
+            <button type="button" class="btn btn-sm btn-primary pull-right hidden message-hide-button" onclick=" hideMessage($(this)); ">
+                <i class="glyphicon glyphicon-chevron-up"></i> @ResGlobal.Collapse
+            </button>
         </div>
     </div>
     <br />
 }
+
+
+<script>
+    function showMessage(message) {
+        message.addClass('hidden');
+        message.siblings(".message-hide-button").removeClass('hidden');
+        message.parent().parent().find(".item-content").show();
+    }
+
+    function hideMessage(message) {
+        message.addClass('hidden');
+        message.siblings(".message-show-button").removeClass('hidden');
+        message.parent().parent().find(".item-content").hide();
+    }
+</script>

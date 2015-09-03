@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Warehouse.Data.Dto;
@@ -52,6 +53,18 @@ namespace Warehouse.Data.Repository
                 result.SetError(ex);
             }
 
+            return result;
+        }
+
+        public WarehouseSocet GetSocetForProduct(Product product)
+        {
+            var builderFilter = Builders<WarehouseSocet>.Filter;
+            var builderSort = Builders<WarehouseSocet>.Sort;
+            var filter = builderFilter.Gte(x => x.FreeVolume, product.Volume) & builderFilter.Gte(x => x.FreeWeight, product.Weight)
+                         & builderFilter.Gte(x => x.Height, product.Height) & builderFilter.Gte(x => x.Length, product.Length)
+                         & builderFilter.Gte(x => x.Width, product.Width);
+            var sort = builderSort.Descending(x => x.UseVolume).Descending(x => x.UseWeight);
+            var result = GetByFiltrFirst(filter, sort);
             return result;
         }
 

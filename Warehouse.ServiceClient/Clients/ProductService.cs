@@ -35,5 +35,10 @@ namespace Warehouse.ServiceClient.Clients
         {
             return ServiceManager.Call<ProductClient, Product>(c => c.GetProductByEan(ean));
         }
+
+        public static List<ProductSum> GetWarehouseProductSum()
+        {
+            return ServiceManager.Call<ProductClient, List<ProductSum>>(c => c.GetWarehouseProductSum().ToList());
+        }
     }
 }

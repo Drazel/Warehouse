@@ -10,8 +10,8 @@ using Warehouse.Data.Attribute;
 
 namespace Warehouse.Data.Dto
 {
-    [BsonCollection("OrderPosition")]
-    public class OrderPosition
+    [BsonCollection("SupplyPosition")]
+    public class SupplyPosition
     {
         [BsonElementAttribute("Lp")]
         public int Lp { get; set; }
@@ -24,9 +24,9 @@ namespace Warehouse.Data.Dto
 
         public string ProductIdString { get; set; }
 
-        public OrderPosition(){ }
+        public SupplyPosition(){ }
 
-        public OrderPosition(int lp, string productId, int count)
+        public SupplyPosition(int lp, string productId, int count)
         {
             Lp = lp;
             Count = count;

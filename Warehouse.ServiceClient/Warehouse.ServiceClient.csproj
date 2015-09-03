@@ -46,6 +46,7 @@
     <Compile Include="Clients\ProductService.cs" />
     <Compile Include="Clients\ServiceService.cs" />
     <Compile Include="Clients\SocetProductsService.cs" />
+    <Compile Include="Clients\SupplyService.cs" />
     <Compile Include="Clients\WarehouseSocetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\WarehouseService\Reference.cs">
@@ -65,6 +66,7 @@
     <None Include="Properties\DataSources\Warehouse.Data.Dto.WarehouseSocet.datasource" />
     <None Include="Properties\DataSources\Warehouse.Data.Result.BoolResult.datasource" />
     <None Include="Properties\DataSources\Warehouse.Data.Result.OutProductList.datasource" />
+    <None Include="Properties\DataSources\Warehouse.Data.Result.ProductSum.datasource" />
     <None Include="Service References\WarehouseService\Service.wsdl" />
     <None Include="Service References\WarehouseService\Service.xsd">
       <SubType>Designer</SubType>

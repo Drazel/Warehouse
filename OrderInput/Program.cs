@@ -35,6 +35,7 @@ namespace OrderInput
         {
             var radOrder = new Random(DateTime.Now.Millisecond);
             var orderRepository = new OrderRepository();
+            var date = DateTime.Now.AddDays(radOrder.Next(10));
             var order = new Order
             {
                 City = "Sławno",
@@ -44,8 +45,8 @@ namespace OrderInput
                 HouseNumber = "10",
                 OrderStatus = eOrderStatus.New,
                 PostalCode = "76-100",
-                Realized = false,
-                SendDate = DateTime.Now.AddDays(radOrder.Next(10)),
+                SendDate = date,
+                CreateDate = date.AddDays(-1),
                 Street = "Warszkowo",
                 
             };
@@ -63,11 +64,9 @@ namespace OrderInput
 
             for (int i = 0; i <= productCount; i++)
             {
-                var item = new OrderPosition();
+
                 var j = radProduct.Next(products.Count());
-                item.Lp = i + 1;
-                item.SetProduct(products[j].Id);
-                item.Count = radProduct.Next(1, 10);
+                var item = new OrderPosition(i + 1, products[j].Id.ToString(), radProduct.Next(1, 10));
                 result.Add(item);
             }
             return result;

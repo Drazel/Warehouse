@@ -34,4 +34,30 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="eOrderStatus" nillable="true" type="tns:eOrderStatus" />
+  <xs:simpleType name="eSupplyStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Provided">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Adopted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="eSupplyStatus" nillable="true" type="tns:eSupplyStatus" />
 </xs:schema>
