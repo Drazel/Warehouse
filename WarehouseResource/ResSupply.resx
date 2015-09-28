@@ -120,10 +120,31 @@
   <data name="GetSupply" xml:space="preserve">
     <value>Przyjęcie dostawy</value>
   </data>
+  <data name="StatusAdopted" xml:space="preserve">
+    <value>Przyjęta</value>
+  </data>
+  <data name="StatusNew" xml:space="preserve">
+    <value>Nowa</value>
+  </data>
+  <data name="StatusProvided" xml:space="preserve">
+    <value>Dostarczona</value>
+  </data>
   <data name="Supplier" xml:space="preserve">
     <value>Dostawca</value>
   </data>
+  <data name="SupplierId" xml:space="preserve">
+    <value>Identyfikator dostawcy</value>
+  </data>
   <data name="Supply" xml:space="preserve">
     <value>Dostawa</value>
+  </data>
+  <data name="SupplyArchList" xml:space="preserve">
+    <value>Archiwum dostaw</value>
+  </data>
+  <data name="SupplyList" xml:space="preserve">
+    <value>Lista dostaw</value>
+  </data>
+  <data name="SupplyNumber" xml:space="preserve">
+    <value>Numer dostawy</value>
   </data>
 </root>

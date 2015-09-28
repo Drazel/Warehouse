@@ -101,35 +101,6 @@ namespace Warehouse.ServiceClient.WarehouseService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MongoDBRef", Namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver")]
-    [System.SerializableAttribute()]
-    public partial class MongoDBRef : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WarehouseService.IService")]
     public interface IService {
@@ -673,6 +644,24 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/AddSupply", ReplyAction="http://tempuri.org/ISupply/AddSupplyResponse")]
         System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddSupplyAsync(Warehouse.Data.Dto.Supply supply);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetNewSupplys", ReplyAction="http://tempuri.org/ISupply/GetNewSupplysResponse")]
+        Warehouse.Data.Result.SupplyItem[] GetNewSupplys();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetNewSupplys", ReplyAction="http://tempuri.org/ISupply/GetNewSupplysResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem[]> GetNewSupplysAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetSupplys", ReplyAction="http://tempuri.org/ISupply/GetSupplysResponse")]
+        Warehouse.Data.Result.SupplyItem[] GetSupplys();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetSupplys", ReplyAction="http://tempuri.org/ISupply/GetSupplysResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem[]> GetSupplysAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetSupplyBySupplyNumber", ReplyAction="http://tempuri.org/ISupply/GetSupplyBySupplyNumberResponse")]
+        Warehouse.Data.Result.SupplyItem GetSupplyBySupplyNumber(string supplyNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISupply/GetSupplyBySupplyNumber", ReplyAction="http://tempuri.org/ISupply/GetSupplyBySupplyNumberResponse")]
+        System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem> GetSupplyBySupplyNumberAsync(string supplyNumber);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -708,6 +697,30 @@ namespace Warehouse.ServiceClient.WarehouseService {
         
         public System.Threading.Tasks.Task<Warehouse.Data.Result.BoolResult> AddSupplyAsync(Warehouse.Data.Dto.Supply supply) {
             return base.Channel.AddSupplyAsync(supply);
+        }
+        
+        public Warehouse.Data.Result.SupplyItem[] GetNewSupplys() {
+            return base.Channel.GetNewSupplys();
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem[]> GetNewSupplysAsync() {
+            return base.Channel.GetNewSupplysAsync();
+        }
+        
+        public Warehouse.Data.Result.SupplyItem[] GetSupplys() {
+            return base.Channel.GetSupplys();
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem[]> GetSupplysAsync() {
+            return base.Channel.GetSupplysAsync();
+        }
+        
+        public Warehouse.Data.Result.SupplyItem GetSupplyBySupplyNumber(string supplyNumber) {
+            return base.Channel.GetSupplyBySupplyNumber(supplyNumber);
+        }
+        
+        public System.Threading.Tasks.Task<Warehouse.Data.Result.SupplyItem> GetSupplyBySupplyNumberAsync(string supplyNumber) {
+            return base.Channel.GetSupplyBySupplyNumberAsync(supplyNumber);
         }
     }
 }

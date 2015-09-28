@@ -351,4 +351,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetNewSupplys">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewSupplysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetNewSupplysResult" nillable="true" type="q41:ArrayOfSupplyItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplys">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetSupplysResult" nillable="true" type="q42:ArrayOfSupplyItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplyBySupplyNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="supplyNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSupplyBySupplyNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" minOccurs="0" name="GetSupplyBySupplyNumberResult" nillable="true" type="q43:SupplyItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -22,7 +22,7 @@ namespace WarehouseResource {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ResSupply {
+    public class ResSupply {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace WarehouseResource {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WarehouseResource.ResSupply", typeof(ResSupply).Assembly);
@@ -51,7 +51,7 @@ namespace WarehouseResource {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,27 +63,90 @@ namespace WarehouseResource {
         /// <summary>
         ///   Looks up a localized string similar to Przyjęcie dostawy.
         /// </summary>
-        internal static string GetSupply {
+        public static string GetSupply {
             get {
                 return ResourceManager.GetString("GetSupply", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Przyjęta.
+        /// </summary>
+        public static string StatusAdopted {
+            get {
+                return ResourceManager.GetString("StatusAdopted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa.
+        /// </summary>
+        public static string StatusNew {
+            get {
+                return ResourceManager.GetString("StatusNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dostarczona.
+        /// </summary>
+        public static string StatusProvided {
+            get {
+                return ResourceManager.GetString("StatusProvided", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dostawca.
         /// </summary>
-        internal static string Supplier {
+        public static string Supplier {
             get {
                 return ResourceManager.GetString("Supplier", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Identyfikator dostawcy.
+        /// </summary>
+        public static string SupplierId {
+            get {
+                return ResourceManager.GetString("SupplierId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dostawa.
         /// </summary>
-        internal static string Supply {
+        public static string Supply {
             get {
                 return ResourceManager.GetString("Supply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archiwum dostaw.
+        /// </summary>
+        public static string SupplyArchList {
+            get {
+                return ResourceManager.GetString("SupplyArchList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista dostaw.
+        /// </summary>
+        public static string SupplyList {
+            get {
+                return ResourceManager.GetString("SupplyList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numer dostawy.
+        /// </summary>
+        public static string SupplyNumber {
+            get {
+                return ResourceManager.GetString("SupplyNumber", resourceCulture);
             }
         }
     }

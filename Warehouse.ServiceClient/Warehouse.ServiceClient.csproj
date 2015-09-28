@@ -67,6 +67,7 @@
     <None Include="Properties\DataSources\Warehouse.Data.Result.BoolResult.datasource" />
     <None Include="Properties\DataSources\Warehouse.Data.Result.OutProductList.datasource" />
     <None Include="Properties\DataSources\Warehouse.Data.Result.ProductSum.datasource" />
+    <None Include="Properties\DataSources\Warehouse.Data.Result.SupplyItem.datasource" />
     <None Include="Service References\WarehouseService\Service.wsdl" />
     <None Include="Service References\WarehouseService\Service.xsd">
       <SubType>Designer</SubType>
@@ -81,9 +82,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WarehouseService\Service4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WarehouseService\Service5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WarehouseService\Service51.xsd">

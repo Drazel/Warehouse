@@ -98,7 +98,7 @@
       <LastGenOutput>ResSocet.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResSupply.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResSupply.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ResWarehouse.resx">

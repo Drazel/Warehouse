@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
   <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" />
-  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver" />
   <xs:complexType name="Product">
     <xs:sequence>
       <xs:element minOccurs="0" name="Ean" nillable="true" type="xs:string" />
@@ -86,7 +85,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Count" type="xs:int" />
       <xs:element minOccurs="0" name="Lp" type="xs:int" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MongoDB.Driver" minOccurs="0" name="ProductId" nillable="true" type="q6:MongoDBRef" />
+      <xs:element minOccurs="0" name="ProductIdString" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderPosition" nillable="true" type="tns:OrderPosition" />
@@ -97,13 +96,13 @@
       <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="FlatNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q7:ObjectId" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MongoDB.Bson" minOccurs="0" name="Id" type="q6:ObjectId" />
       <xs:element minOccurs="0" name="Positions" nillable="true" type="tns:ArrayOfSupplyPosition" />
       <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SupplierId" type="xs:int" />
       <xs:element minOccurs="0" name="SupplyNumber" nillable="true" type="xs:string" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" minOccurs="0" name="SupplyStatus" type="q8:eSupplyStatus" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" minOccurs="0" name="SupplyStatus" type="q7:eSupplyStatus" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Supply" nillable="true" type="tns:Supply" />
@@ -117,7 +116,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Count" type="xs:int" />
       <xs:element minOccurs="0" name="Lp" type="xs:int" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MongoDB.Driver" minOccurs="0" name="ProductId" nillable="true" type="q9:MongoDBRef" />
+      <xs:element minOccurs="0" name="ProductIdString" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="SupplyPosition" nillable="true" type="tns:SupplyPosition" />

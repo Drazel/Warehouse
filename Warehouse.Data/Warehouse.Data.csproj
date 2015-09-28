@@ -71,6 +71,7 @@
     <Compile Include="Enum\eSupplyStatus.cs" />
     <Compile Include="Enum\eOrderStatus.cs" />
     <Compile Include="Helper\AttributeHelper.cs" />
+    <Compile Include="Helper\ObjectMapper.cs" />
     <Compile Include="Repository\ARespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
@@ -83,7 +84,9 @@
     <Compile Include="Repository\WarehouseSocetRepository.cs" />
     <Compile Include="Result\BoolResult.cs" />
     <Compile Include="Result\OutProductList.cs" />
+    <Compile Include="Result\Position.cs" />
     <Compile Include="Result\ProductSum.cs" />
+    <Compile Include="Result\SupplyItem.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

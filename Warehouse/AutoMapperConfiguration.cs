@@ -7,6 +7,7 @@ using Warehouse.Models.Base;
 using Warehouse.Models.Package;
 using Warehouse.Models.Product;
 using Warehouse.Models.ProductList;
+using Warehouse.Models.Supply;
 using Warehouse.Models.WarehouseSocet;
 
 namespace Warehouse
@@ -40,6 +41,12 @@ namespace Warehouse
                 .ForMember(dest => dest.Products, opt => opt.MapFrom(src => Mapper.Map<List<ProductSumModel>>( src.Products)));
             Mapper.CreateMap<OutProductList, OutProductListModel>()
                 .ForMember(dest => dest.Products, opt => opt.MapFrom(src => Mapper.Map<List<ProductSum>>(src.Products)));
+
+            Mapper.CreateMap<Position, PositionModel>()
+               .ForMember(dest => dest.Product, opt => opt.MapFrom(src => Mapper.Map<ProductModel>(src.Product)));
+
+            Mapper.CreateMap<SupplyItem, SupplyModel>()
+               .ForMember(dest => dest.Positions, opt => opt.MapFrom(src => Mapper.Map<List<PositionModel>>(src.Positions)));
         }
     }
 }

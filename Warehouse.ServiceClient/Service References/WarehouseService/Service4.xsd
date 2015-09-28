@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" />
+  <xs:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" />
   <xs:complexType name="BoolResult">
     <xs:sequence>
       <xs:element minOccurs="0" name="FullMessage" nillable="true" type="xs:string" />
@@ -36,4 +38,42 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OutProductList" nillable="true" type="tns:OutProductList" />
+  <xs:complexType name="ArrayOfSupplyItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SupplyItem" nillable="true" type="tns:SupplyItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSupplyItem" nillable="true" type="tns:ArrayOfSupplyItem" />
+  <xs:complexType name="SupplyItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FlatNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HouseNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Positions" nillable="true" type="tns:ArrayOfPosition" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierId" type="xs:int" />
+      <xs:element minOccurs="0" name="SupplyNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" minOccurs="0" name="SupplyStatus" type="q1:eSupplyStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupplyItem" nillable="true" type="tns:SupplyItem" />
+  <xs:complexType name="ArrayOfPosition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Position" nillable="true" type="tns:Position" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPosition" nillable="true" type="tns:ArrayOfPosition" />
+  <xs:complexType name="Position">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdoptedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Lp" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Warehouse.Data.Dto" minOccurs="0" name="Product" nillable="true" type="q2:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Position" nillable="true" type="tns:Position" />
 </xs:schema>

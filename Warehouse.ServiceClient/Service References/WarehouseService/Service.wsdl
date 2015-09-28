@@ -8,7 +8,6 @@
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Bson" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Result" />
       <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Warehouse.Data.Enum" />
-      <xsd:import schemaLocation="http://localhost:57498/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/MongoDB.Driver" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService_Ping_InputMessage">
@@ -161,6 +160,24 @@
   <wsdl:message name="ISupply_AddSupply_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddSupplyResponse" />
   </wsdl:message>
+  <wsdl:message name="ISupply_GetNewSupplys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewSupplys" />
+  </wsdl:message>
+  <wsdl:message name="ISupply_GetNewSupplys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewSupplysResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupply_GetSupplys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplys" />
+  </wsdl:message>
+  <wsdl:message name="ISupply_GetSupplys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplysResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupply_GetSupplyBySupplyNumber_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplyBySupplyNumber" />
+  </wsdl:message>
+  <wsdl:message name="ISupply_GetSupplyBySupplyNumber_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSupplyBySupplyNumberResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Ping">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Ping" message="tns:IService_Ping_InputMessage" />
@@ -273,6 +290,18 @@
     <wsdl:operation name="AddSupply">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupply/AddSupply" message="tns:ISupply_AddSupply_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISupply/AddSupplyResponse" message="tns:ISupply_AddSupply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewSupplys">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupply/GetNewSupplys" message="tns:ISupply_GetNewSupplys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupply/GetNewSupplysResponse" message="tns:ISupply_GetNewSupplys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplys">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupply/GetSupplys" message="tns:ISupply_GetSupplys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupply/GetSupplysResponse" message="tns:ISupply_GetSupplys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplyBySupplyNumber">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupply/GetSupplyBySupplyNumber" message="tns:ISupply_GetSupplyBySupplyNumber_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupply/GetSupplyBySupplyNumberResponse" message="tns:ISupply_GetSupplyBySupplyNumber_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -513,6 +542,33 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddSupply">
       <soap:operation soapAction="http://tempuri.org/ISupply/AddSupply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewSupplys">
+      <soap:operation soapAction="http://tempuri.org/ISupply/GetNewSupplys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplys">
+      <soap:operation soapAction="http://tempuri.org/ISupply/GetSupplys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplyBySupplyNumber">
+      <soap:operation soapAction="http://tempuri.org/ISupply/GetSupplyBySupplyNumber" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

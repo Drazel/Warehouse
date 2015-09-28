@@ -26,9 +26,7 @@ Warehouse.controller('WarehouseCtrl', function ($scope, ProductService, SocetSer
     $scope.getProduct = function () {
         ProductService.getProduct($scope.Ean)
             .success(function (product) {
-                console.log('prod1');
                 setProduct(product);
-                console.log('prod2');
             })
             .error(function(error) {
                 $scope.productErrorMessage = error;

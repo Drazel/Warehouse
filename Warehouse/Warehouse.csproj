@@ -199,6 +199,9 @@
     <Compile Include="Models\ProductList\ProductSumModel.cs" />
     <Compile Include="Models\Product\ProductModel.cs" />
     <Compile Include="Models\Product\ProductsListModel.cs" />
+    <Compile Include="Models\Supply\GetSupplyModel.cs" />
+    <Compile Include="Models\Supply\PositionModel.cs" />
+    <Compile Include="Models\Supply\SupplyModel.cs" />
     <Compile Include="Models\WarehouseSocet\WarehouseSocetModel.cs" />
     <Compile Include="Models\WarehouseSocet\WarehouseSocetsListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1056,11 +1059,13 @@
     <Content Include="Views\SocetProduct\ProductToSocet.cshtml" />
     <Content Include="Views\ProductList\OutProductList.cshtml" />
     <Content Include="Views\ProductList\WarehouseProduct.cshtml" />
+    <Content Include="Views\Supply\SupplyList.cshtml" />
+    <Content Include="Views\Supply\SupplyArchyList.cshtml" />
+    <Content Include="Views\Supply\GetSupply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\SocetProduct\" />
-    <Folder Include="Views\Supply\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

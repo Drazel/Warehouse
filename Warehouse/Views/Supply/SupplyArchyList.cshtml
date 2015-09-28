@@ -1,0 +1,47 @@
+﻿@using WarehouseResource
+@model System.Collections.Generic.List<Warehouse.Models.Supply.SupplyModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResSupply.SupplyArchList</h1>
+    </div>
+</div>
+
+@foreach (var supply in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <span>@supply.SupplyStatusString, @supply.SupplyNumber</span>
+                </div>
+            </div>
+            <div class="panel-body">
+
+                @foreach (var item in supply.Positions)
+                {
+                    <div class="row">
+                        <div class="col-xs-3">
+                            @item.Lp
+                        </div>
+                        <div class="col-xs-3">
+                            @item.Product.Name
+                        </div>
+                        <div class="col-xs-3">
+                            @item.Product.Ean
+                        </div>
+                        <div class="col-xs-3">
+                            @item.Count
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+}

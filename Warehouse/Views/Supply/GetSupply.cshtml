@@ -1,0 +1,79 @@
+﻿@using WarehouseResource
+@model Warehouse.Models.Supply.GetSupplyModel
+
+@{
+    ViewBag.Title = "GetSupply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/SupplyCtrl.js")
+}
+
+
+
+<div class="row hidden-xs">
+    <div class="col-xs-12">
+        <h1>@ResSupply.GetSupply</h1>
+    </div>
+</div>
+
+
+<div class="panel panel-default" ng-app="SupplyApp" ng-controller="SupplyCtrl">
+    <div class="col-xs-12">
+        @Html.TextBoxFor(x => x.SupplyNumber, new { @my_Enter = "GerSupply()", @ng_model = "SupplyNumber" })
+    </div>
+    <br />
+    <div ng-show="Succes">
+        
+        <div class="row">
+            <div class="col-xs-2">
+                <span>@ResProduct.Ean</span>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" ng-model="Ean">
+            </div>
+            <div class="col-xs-2">
+                <span>@ResGlobal.Count</span>
+            </div>
+            <div class="col-xs-4">
+                <input type="text" ng-model="Count">
+            </div>
+        </div>
+        
+        <div ng-show="SuccesSocet">
+
+        </div>
+
+        <br />
+        <div class="col-xs-12">
+            <span>@ResSupply.SupplyNumber : {{Supply.SupplyNumber}}</span>
+        </div>
+        <div class="col-xs-12">
+            <span>@ResSupply.SupplierId : {{Supply.SupplierId}}</span>
+        </div>
+        <br />
+        <table class="table table-striped table-condensed table-hover">
+            <thead>
+
+                <tr>
+                    <th class="Lp">Lp&nbsp;</th>
+                    <th class="Nazwa">Nazwa&nbsp;</th>
+                    <th class="Ean">EAN&nbsp;</th>
+                    <th class="Count">Ilość&nbsp;</th>
+                    <th class="CountUse">Ilość przyjęta&nbsp;</th>
+                    <th class="Status">Status&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in Supply.Positions">
+                    <td>{{item.Lp}}</td>
+                    <td>{{item.Product.Name}}</td>
+                    <td>{{item.Product.Ean}}</td>
+                    <td>{{item.Count}}</td>
+                    <td>{{item.AdoptedCount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
